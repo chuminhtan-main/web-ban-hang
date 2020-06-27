@@ -1,0 +1,180 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: rgb(250, 250, 250);
+}
+
+body,
+input,
+button,
+option,
+textarea,
+label,
+legend,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+    font: 14px/18px Helvetica, Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
+    color: #333;
+    outline: none;
+    zoom: 1;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+#header {
+    background-color: #fed700;
+    height: 99px;
+}
+
+#banner {
+    background-color: black;
+    text-align: center;
+}
+
+ul#nav-header>li {
+    width: 25%;
+}
+
+ul#nav-header a {
+    color: black;
+    width: 100%;
+    height: 100px;
+    display: inline-block;
+    text-align: center;
+}
+
+ul#nav-header a:hover {
+    border: 1px solid black;
+    border-width: 0 1px;
+    border-radius: 0;
+    background-color: rgb(248, 248, 248);
+}
+
+ul#nav-header a>img {
+    margin-bottom: 10px;
+    position: relative;
+}
+
+#nav-header {
+    color: black;
+}
+
+#cart {
+    text-align: right;
+    padding-top: 3%;
+    padding-right: 0;
+}
+
+#cart>a {
+    border: 2px solid rgb(248, 248, 248);
+    border-radius: 10px;
+    padding: 10% 10%;
+    background-color: #189EFF;
+}
+
+#cart span#gio-hang {
+    color: white;
+    font-size: 15px;
+}
+
+#cart span#so-luong {
+    font-weight: bold;
+    display: inline-block;
+    width: 20%;
+    font-size: 15px;
+    color: black;
+    background-color: #FED700;
+    text-align: center;
+}
+
+.carousel-inner {
+    height: 250px;
+}
+
+.carousel-inner img {
+    width: 100%;
+    height: 50%;
+}
+
+#qc-dn {
+    margin-top: 20px
+}
+
+#slide-san-pham {
+    padding: 0;
+}
+
+#form-dang-nhap {
+    border: 2px solid black;
+    /* margin-left: 20px; */
+    padding: 10px 20px;
+    height: 250px;
+}
+
+#form-dang-nhap>button {
+    width: 50%;
+    margin-right: 15%;
+}
+
+#form-dang-nhap>a {
+    text-decoration: underline;
+}
+
+#san-pham-noi-bat {
+    margin-top: 20px;
+}
+
+div.san-pham-noi-bat {
+    padding: 10px 10px 50px 10px;
+    border: 1px solid #eee;
+}
+
+div.san-pham-noi-bat a {
+    display: block;
+}
+
+div.san-pham-noi-bat img {
+    height: 150px;
+    width: 90%;
+}
+
+p.img-san-pham {
+    text-align: center;
+}
+
+h1.h1 {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+div.san-pham-noi-bat p.o-cung {
+    font-size: 11px;
+    margin: 5px 5px 5px 0;
+    color: #777;
+    line-height: 22px;
+}
+
+div.gia strong {
+    display: inline-block;
+    vertical-align: middle;
+    overflow: hidden;
+    font-size: 14px;
+    color: #e10c00;
+    line-height: 15px;
+}

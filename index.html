@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/page.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+
+    <title>Trang Chủ</title>
+</head>
+
+<body>
+    <header id="header" class="navbar-inverse">
+        <div class="container">
+            <div class="row">
+                <div id="banner" class="col-md-2">
+                    <!-- banner -->
+                    <img src="images/banner/rsz-banner-yellow.png" alt="">
+                </div>
+                <!-- nav header -->
+                <div class="col-md-7">
+                    <ul id="nav-header" class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link ">
+                                <img src="images/iconNav/home.png" alt="trangchu">
+                                <p>TRANG CHỦ</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link active">
+                                <img src="images/iconNav/laptop.png" alt="laptop">
+                                <p>LAPTOP</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <img src="images/iconNav/vanchuyen.png" alt="vanchuyen">
+                                <p>VẬN CHUYỂN</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <img src="images/iconNav/lienhe.png" alt="lienhe">
+                                <p>LIÊN HỆ</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- cart -->
+                <div class="col-md-3" id="cart">
+
+                    <!-- <a href="">
+                        <img src="images/shopping/cart-white.png" alt="cart-white">
+                        <span id="gio-hang">
+							Giỏ Hàng
+							<span id="so-luong">10</span>
+                        </span>
+					</a> -->
+                    <button type="button" class="btn btn-primary">
+						<img src="images/shopping/cart-white.png" alt="cart-white">
+						Giỏ Hàng <span class="badge badge-light">9</span>
+						<!-- <span class="sr-only">unread messages</span> -->
+					  </button>
+                </div>
+            </div>
+        </div>
+        <!-- END banner-menu-giỏ hàng -->
+
+
+    </header>
+    <!-- KHU VỰC SLIDE QUẢNG CÁO - ĐĂNG NHẬP -->
+    <div class="container" id="san-pham-noi-bat">
+        <div class="row" id="qc-dn">
+
+            <!-- slide quảng cáo -->
+            <div id="slide-san-pham" class="carousel  col-sm-8" data-ride="carousel">
+
+                <!-- Indicators -->
+                <ul class="carousel-indicators">
+                    <li data-target="#demo" data-slide-to="0" class="active"></li>
+                    <li data-target="#demo" data-slide-to="1"></li>
+                    <li data-target="#demo" data-slide-to="2"></li>
+                </ul>
+
+                <!-- The slideshow -->
+                <div class="carousel-inner slide">
+                    <div class="carousel-item active">
+                        <img src="images/slide-show/Melting-Glacier-800x250.jpg" alt="Los Angeles" width="800" height="250">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/slide-show/slide6.jpg" alt="Chicago" width="800" height="250">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/slide-show/Melting-Glacier-800x250.jpg" alt="New York" width="800" height="250">
+                    </div>
+                </div>
+
+                <!-- Left and right controls -->
+                <a class="carousel-control-prev" href="#slide-san-pham" data-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </a>
+                <a class="carousel-control-next" href="#slide-san-pham" data-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </a>
+            </div>
+            <div class="col-md-1"></div>
+
+            <!-- Form đăng nhập -->
+            <form id="form-dang-nhap" class="col-md-3 pull-right" action="/action_page.php">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" placeholder="Enter email" id="email">
+                </div>
+                <div class="form-group">
+                    <label for="pwd">Mật Khẩu</label>
+                    <input type="password" class="form-control" placeholder="Enter password" id="pwd">
+                </div>
+                <button type="submit" class="btn btn-danger" id="btn-dang-nhap">Đăng Nhập</button>
+                <a href="">Đăng Kí</a>
+            </form>
+        </div>
+    </div>
+    <!-- END quảng cáo-đăng nhập -->
+
+
+    <!-- KHU VỰC SẢN PHẨM NỔI BẬT -->
+    <div class="container" id="san-pham-noi-bat">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1 class="h1">Sản Phẩm Nổi Bật</h1>
+            </div>
+            <div class="row">
+                <!-- SP -->
+                <div class="col-sm-3 san-pham-noi-bat">
+                    <a href="">
+                        <p class="img-san-pham"><img src="images/laptop/acer-aspire-3-a315-nx-heesv-00d-221251-1-400x400.jpg" alt="" class=""></p>
+                        <span class="badge badge-warning giam-gia">Giảm Giá</span>
+                        <div class="caption">
+                            <p class="o-cung">Ổ CỨNG SSD 500GB</p>
+                            <h3 class="ten-san-pham">Laptop Asus VivoBook X409FA i3 8145U
+                            </h3>
+                        </div>
+                        <div class="gia">
+                            <strong>10.500.000</strong>
+                        </div>
+                    </a>
+                </div>
+                <!--end sp-->
+                <!-- SP -->
+                <div class="col-sm-3 san-pham-noi-bat">
+                    <a href="">
+                        <p class="img-san-pham"><img src="images/laptop/acer-aspire-3-a315-nx-heesv-00d-221251-1-400x400.jpg" alt="" class=""></p>
+                        <span class="badge badge-warning giam-gia">Giảm Giá</span>
+                        <div class="caption">
+                            <p class="o-cung">Ổ CỨNG SSD 500GB</p>
+                            <h3 class="ten-san-pham">Laptop Asus VivoBook X409FA i3 8145U
+                            </h3>
+                        </div>
+                        <div class="gia">
+                            <strong>10.500.000</strong>
+                        </div>
+                    </a>
+                </div>
+                <!--end sp-->
+                <!-- SP -->
+                <div class="col-sm-3 san-pham-noi-bat">
+                    <a href="">
+                        <p class="img-san-pham"><img src="images/laptop/acer-aspire-3-a315-nx-heesv-00d-221251-1-400x400.jpg" alt="" class=""></p>
+                        <span class="badge badge-warning giam-gia">Giảm Giá</span>
+                        <div class="caption">
+                            <p class="o-cung">Ổ CỨNG SSD 500GB</p>
+                            <h3 class="ten-san-pham">Laptop Asus VivoBook X409FA i3 8145U
+                            </h3>
+                        </div>
+                        <div class="gia">
+                            <strong>10.500.000</strong>
+                        </div>
+                    </a>
+                </div>
+                <!--end sp-->
+                <!-- SP -->
+                <div class="col-sm-3 san-pham-noi-bat">
+                    <a href="">
+                        <p class="img-san-pham"><img src="images/laptop/acer-aspire-3-a315-nx-heesv-00d-221251-1-400x400.jpg" alt="" class=""></p>
+                        <span class="badge badge-warning giam-gia">Giảm Giá</span>
+                        <div class="caption">
+                            <p class="o-cung">Ổ CỨNG SSD 500GB</p>
+                            <h3 class="ten-san-pham">Laptop Asus VivoBook X409FA i3 8145U
+                            </h3>
+                        </div>
+                        <div class="gia">
+                            <strong>10.500.000</strong>
+                        </div>
+                    </a>
+                </div>
+                <!--end sp-->
+                <!-- SP -->
+                <div class="col-sm-3 san-pham-noi-bat">
+                    <a href="">
+                        <p class="img-san-pham"><img src="images/laptop/acer-aspire-3-a315-nx-heesv-00d-221251-1-400x400.jpg" alt="" class=""></p>
+                        <span class="badge badge-warning giam-gia">Giảm Giá</span>
+                        <div class="caption">
+                            <p class="o-cung">Ổ CỨNG SSD 500GB</p>
+                            <h3 class="ten-san-pham">Laptop Asus VivoBook X409FA i3 8145U
+                            </h3>
+                        </div>
+                        <div class="gia">
+                            <strong>10.500.000</strong>
+                        </div>
+                    </a>
+                </div>
+                <!--end sp-->
+                <!-- SP -->
+                <div class="col-sm-3 san-pham-noi-bat">
+                    <a href="">
+                        <p class="img-san-pham"><img src="images/laptop/acer-aspire-3-a315-nx-heesv-00d-221251-1-400x400.jpg" alt="" class=""></p>
+                        <span class="badge badge-warning giam-gia">Giảm Giá</span>
+                        <div class="caption">
+                            <p class="o-cung">Ổ CỨNG SSD 500GB</p>
+                            <h3 class="ten-san-pham">Laptop Asus VivoBook X409FA i3 8145U
+                            </h3>
+                        </div>
+                        <div class="gia">
+                            <strong>10.500.000</strong>
+                        </div>
+                    </a>
+                </div>
+                <!--end sp-->
+                <!-- SP -->
+                <div class="col-sm-3 san-pham-noi-bat">
+                    <a href="">
+                        <p class="img-san-pham"><img src="images/laptop/acer-aspire-3-a315-nx-heesv-00d-221251-1-400x400.jpg" alt="" class=""></p>
+                        <span class="badge badge-warning giam-gia">Giảm Giá</span>
+                        <div class="caption">
+                            <p class="o-cung">Ổ CỨNG SSD 500GB</p>
+                            <h3 class="ten-san-pham">Laptop Asus VivoBook X409FA i3 8145U
+                            </h3>
+                        </div>
+                        <div class="gia">
+                            <strong>10.500.000</strong>
+                        </div>
+                    </a>
+                </div>
+                <!--end sp-->
+
+
+            </div>
+        </div>
+        <!--END sản phẩm nổi bật-->
+
+    </div>
+</body>
+
+</html>
