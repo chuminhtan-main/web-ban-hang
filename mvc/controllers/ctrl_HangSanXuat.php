@@ -8,10 +8,12 @@
         
         public function show(){
             $this->CreateView("view_Admin",[
-                "page"=>"page_HangSanXuat"
+                "page"=>"page_HangSanXuat",
+                "id"=>"hangsx",
+                "dshangsx"=> $this->model_Hang->LayDsHangSX()
                 ]);
         }
-     
+        
         public function abc(){
             echo "Ham abc";
         }

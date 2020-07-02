@@ -39,15 +39,15 @@
                     </li>
                       <!-- Hãng Sx -->
                      <li class="nav-item ">
-                        <a class="nav-link title" href="./HangSanXuat">Hãng SX</a>
+                        <a class="nav-link title" href="/doan/HangSanXuat">Hãng SX</a>
                     </li>
                      <!-- cấu hình CPU -->
                     <li class="nav-item ">
-                        <a class="nav-link title" href="page_CauHinhSanPham.php">Cấu Hình CPU</a>
+                        <a class="nav-link title" href="/doan/CPU">Cấu Hình CPU</a>
                     </li>
                     <!-- cấu hình Ram -->
                     <li class="nav-item ">
-                        <a class="nav-link title" href="page_CauHinhSanPham.php">Cấu Hình RAM</a>
+                        <a class="nav-link title" href="/doan/RAM">Cấu Hình RAM</a>
                     </li>
                 </ul>
             </div>
