@@ -1,7 +1,3 @@
-<!-- 
-    CONTROLLER trong thư mục CORE chứa những hàm mà các file trong thư mục 
-    controllers thường xuyên sử dụng và giống nhau.
- -->
 
 <?php
 class Controller{

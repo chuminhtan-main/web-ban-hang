@@ -1,9 +1,6 @@
-<!-- DBConnect: Khởi tạo kết nối tới csdl -->
 <?php
     class DBConnect{
         public $conn;
-        public $link;
-        public $error;
         protected $serverName = "localhost";
         protected $userName = "root";
         protected $password = "";
@@ -17,6 +14,5 @@
             
             mysqli_query($this->conn,"SET NAMES 'utf8'");//HIỂN THỊ DỮ LIỆU BẰNG TIẾNG VIỆT
         }
-        
     }
 ?>

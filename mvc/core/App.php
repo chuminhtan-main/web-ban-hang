@@ -1,8 +1,3 @@
-<!-- 
-    file APP trong thư mục CORE có chức năng nhận địa chỉ do người dùng nhập vào
-    và phân tách thành các phần nhỏ, sau đó gọi đúng chức năng cần sử dụng.
- -->
-
 <?php
 class App
 {
@@ -26,11 +21,13 @@ class App
                 $this->controller = $arr[0];
 
                 //xu ly action
-                 if($arr[1] != null){
-                   $this->action = $arr[1];            
+                if(isset($arr[1])){
+                        $this->action = $arr[1];
                 }
+
                 unset($arr[0]);
                 unset($arr[1]);
+
                 //xu ly params
                 $this->params = isset($arr) ? array_values($arr) : [];
             }

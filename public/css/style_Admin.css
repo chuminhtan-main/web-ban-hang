@@ -3,6 +3,11 @@ body {
     background-color: rgb(248, 248, 248);
 }
 
+h4.title {
+    color: #007BFF;
+    margin: 40px 0 20px 0;
+}
+
 #page-admin {
     margin: 50px 0;
     min-height: 100px;
@@ -25,4 +30,24 @@ a#btn-dang-xuat {
 
 #ten-dang-nhap {
     color: Green;
+}
+
+.table-danh-sach {
+    width: 100%;
+}
+
+.table-danh-sach td,
+th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+.table-danh-sach tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.btn-thao-tac {
+    display: block;
+    margin: 1px 0;
 }

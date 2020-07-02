@@ -4,43 +4,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" type="text/css" href="doan/public/css/style_Admin.css">
+    <link rel="stylesheet" type="text/css" href="/doan/public/css/style_Admin.css">
     <title>Admin</title>
-    <script>
-        $(document).ready(function() {
+    <script src="/doan/public/js/jquery.js"></script>   
 
-            $(".title").click(function() {
-                $('.active').removeClass('active');
-                var txt = $(this).text();
-                txt = txt.toUpperCase();
-                txt = "QUẢN LÝ " + txt;
-                $(this).addClass("active");
-            })
-        })
-    </script>
 </head>
 
 <body>
-    <div class="container">
+    <div class="container-fluid">
         <!-- nav -->
         <div class="row text-light ">
             <div class="col-md-10">
                 <!-- menu -->
                 <ul class="nav nav-pills nav-fill">
                     <!-- người dùng -->
-                    <li id="nguoi-dung" class="nav-item">
-                        <a class="nav-link active title" href="#">Người Dùng</a>
+                    <li  class="nav-item">
+                        <a class="nav-link title <?php 
+                            if($data["id"] == "nguoiDung")
+                                echo "active";
+
+                        ?>" href="/doan/QuanLyNguoiDung">Người Dùng</a>
                     </li>
                     <!-- sản phẩm -->
                     <li id="san-pham" class="nav-item">
-                        <a class="nav-link title" href="#">Sản Phẩm</a>
+                        <a class="nav-link title <?php 
+                            if($data["id"]=="sanPham")
+                                echo "active";
+
+                        ?>" href="/doan/QuanLySanPham">Sản Phẩm</a>
                     </li>
                     <!-- hóa đơn -->
                     <li id="hoa-don" class="nav-item">
-                        <a class="nav-link title" href="#">Đơn Đặt Hàng</a>
+                        <a class="nav-link title <?php if($data["id"]=="hoaDon") echo "active"; ?>" href="#">Đơn Đặt Hàng</a>     
                     </li>
-                    <!-- Hãng Sx -->
-                    <li class="nav-item ">
+                      <!-- Hãng Sx -->
+                     <li class="nav-item ">
                         <a class="nav-link title" href="./HangSanXuat">Hãng SX</a>
                     </li>
                      <!-- cấu hình CPU -->
