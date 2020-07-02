@@ -1,0 +1,28 @@
+body {
+    padding: 20px 20px;
+    background-color: rgb(248, 248, 248);
+}
+
+#page-admin {
+    margin: 50px 0;
+    min-height: 100px;
+    border: 1px solid gray;
+}
+
+a:hover {
+    font-weight: bold;
+}
+
+a#btn-dang-xuat {
+    display: block;
+    text-align: center;
+    line-height: 100%;
+}
+
+#thong-tin-dang-nhap {
+    text-align: center;
+}
+
+#ten-dang-nhap {
+    color: Green;
+}
