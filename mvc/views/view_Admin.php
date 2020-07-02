@@ -4,10 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="public\libs\bootstrap.css">
-    <link rel="stylesheet" href="public\css\style_Admin.css">
-    <script src="public/js/jquery.js"></script>
-    <script src="public/js/bootstrap.js"></script>
+<link rel="stylesheet" type="text/css" href="doan/public/css/style_Admin.css">
     <title>Admin</title>
     <script>
         $(document).ready(function() {
@@ -42,9 +39,17 @@
                     <li id="hoa-don" class="nav-item">
                         <a class="nav-link title" href="#">Đơn Đặt Hàng</a>
                     </li>
-                    <!-- cấu hình sản phẩm -->
+                    <!-- Hãng Sx -->
                     <li class="nav-item ">
-                        <a class="nav-link title" href="#">Cấu Hình Sản Phẩm</a>
+                        <a class="nav-link title" href="./HangSanXuat">Hãng SX</a>
+                    </li>
+                     <!-- cấu hình CPU -->
+                    <li class="nav-item ">
+                        <a class="nav-link title" href="page_CauHinhSanPham.php">Cấu Hình CPU</a>
+                    </li>
+                    <!-- cấu hình Ram -->
+                    <li class="nav-item ">
+                        <a class="nav-link title" href="page_CauHinhSanPham.php">Cấu Hình RAM</a>
                     </li>
                 </ul>
             </div>

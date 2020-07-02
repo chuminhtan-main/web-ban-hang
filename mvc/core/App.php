@@ -26,13 +26,11 @@ class App
                 $this->controller = $arr[0];
 
                 //xu ly action
-                if ($arr[1] != null) {
-                    $this->action = $arr[1];
+                 if($arr[1] != null){
+                   $this->action = $arr[1];            
                 }
-
                 unset($arr[0]);
                 unset($arr[1]);
-
                 //xu ly params
                 $this->params = isset($arr) ? array_values($arr) : [];
             }
