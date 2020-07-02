@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="public\css\style_Admin.css">
     <script src="public/js/jquery.js"></script>
     <script src="public/js/bootstrap.js"></script>
-Còn View vs các cái khác chưa xem, video 5 &6 á
     <title>Admin</title>
     <script>
         $(document).ready(function() {
