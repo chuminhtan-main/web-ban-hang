@@ -229,7 +229,7 @@
     <script>
     $(document).ready(function() {
         load_data_nhan_vien();
-        
+        load_data_khach_hang();
 
         $(document).on('click','.btn-xoaNguoiDung',function() {
             var r = confirm('Bạn muốn xóa người dùng ?');
@@ -239,10 +239,10 @@
 
         function load_data_nhan_vien(page) {
             $.ajax({
-                url: '/doan/QuanLyNguoiDung/AjaxLayDsNguoiDung/1/5',
+                url: '/doan/QuanLyNguoiDung/AjaxLayDsNhanVien/5',
                 method: 'POST',
                 data: {
-                    page: page
+                    page_nhan_vien: page
                 },
                 cache: false,
                 success: function(data) {
@@ -255,10 +255,10 @@
         function load_data_khach_hang(page){
           $(this).find('#page').addClass('active');
               $.ajax({
-                  url: '/doan/QuanLyNguoiDung/AjaxLayDsNguoiDung/2/5',
+                  url: '/doan/QuanLyNguoiDung/AjaxLayDsKhachHang/5',
                   method: 'POST',
                   data: {
-                      page: page
+                      page_khach_hang: page
                   },
                   cache: false,
                   success: function(data) {

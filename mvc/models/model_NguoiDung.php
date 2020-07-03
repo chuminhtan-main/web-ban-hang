@@ -69,14 +69,14 @@ class model_NguoiDung extends DBConnect
         return $kq;
     }
 
-    // LẤY DANH SÁCH SỬ DỤNG AJAX: 3 THAM SỐ LOẠI NGƯỜI DÙNG,SỐ LƯỢNG MUỐN LẤY LÊN
-    public function LayGioiHanNguoiDung($loaiNguoiDung,$trang, $soBanGhiMoiTrang){
+    // AJAX: LẤY DS NHÂN VIÊN
+    public function AjaxLayDsNhanVien($trang, $soBanGhiMoiTrang){
         // bản ghi mỗi trang
         $output='';
         
         $batDau = ($trang - 1) * $soBanGhiMoiTrang;
         
-        $query = "SELECT * FROM nguoi_dung WHERE LOAI_ND = $loaiNguoiDung LIMIT $batDau, $soBanGhiMoiTrang";
+        $query = "SELECT * FROM nguoi_dung WHERE LOAI_ND = 1 LIMIT $batDau, $soBanGhiMoiTrang";
 
         $result = mysqli_query($this->conn,$query);
 
@@ -118,42 +118,85 @@ class model_NguoiDung extends DBConnect
         }
             $output .= "</table><br/><nav><br/><ul class='pagination'>";
 
-            $page_result=[];
-
-            if($loaiNguoiDung == 1){
-                $page_result = mysqli_query($this->conn, "SELECT * FROM nguoi_dung WHERE LOAI_ND = 1");     
-            }
-                
-            else{
-                $page_result = mysqli_query($this->conn, "SELECT * FROM nguoi_dung WHERE LOAI_ND = 2"); 
-            }
-                 
+            $page_result = mysqli_query($this->conn, "SELECT * FROM nguoi_dung WHERE LOAI_ND = 1");     
+       
             $tongSoBanGhi = mysqli_num_rows($page_result);
 
             $tongSoTrang = ceil( $tongSoBanGhi/ $soBanGhiMoiTrang);
 
-            // Nếu lấy nhân viên thì gắn class .page-link-nhan-vien
-
-            if( $loaiNguoiDung == 1){
-                for($i = 1; $i <= $tongSoTrang ; $i++){
+            // nhân viên thì gắn class .page-link-nhan-vien
+            for($i = 1; $i <= $tongSoTrang ; $i++){
                 
                     if( $trang == $i )
                         $output .= "<li class='page-item'><a class='page-link page-link-nhan-vien' style='background-color:#0069D9; color:white ' id='".$i."'>".$i."</a></li>";
                     else
                         $output .= "<li class='page-item'><a class='page-link page-link-nhan-vien'  id='".$i."'>".$i."</a></li>";
-                } 
-            }
+            } 
+            return $output;
+        }
 
-            // Nếu lấy khách hàng thì gắn class .page-link-khach-hang
-            else{
+         // AJAX: LẤY DS KHÁCH HÀNG
+    public function AjaxLayDsKhachhang($trang, $soBanGhiMoiTrang){
+
+        // bản ghi mỗi trang
+        $output='';
+        
+        $batDau = ($trang - 1) * $soBanGhiMoiTrang;
+        
+        $query = "SELECT * FROM nguoi_dung WHERE LOAI_ND = 2 LIMIT $batDau, $soBanGhiMoiTrang";
+
+        $result = mysqli_query($this->conn,$query);
+
+        $output .= "
+            <table class='table-danh-sach'>
+                <tr>
+                    <th>STT</th>
+                    <th>Mã</th>
+                    <th>Họ Tên</th>
+                    <th>Email</th>
+                    <th>Điện Thoại</th>
+                    <th>Địa Chỉ</th>
+                    <th>Loại</th>
+                    <th>Tên Đăng Nhập</th>
+                    <th>Thao Tác</th>
+                </tr>
+        ";
+
+        $stt = 1;
+        while( $row = mysqli_fetch_array( $result ) ){
+
+            $output .= "
+            <tr>
+                <td>".$stt."</td>
+                <td>".$row["MA_ND"]."</td>
+                <td>".$row["TEN_ND"]."</td>
+                <td>".$row["EMAIL"]."</td>
+                <td>".$row["SDT"]."</td>
+                <td>".$row["DIA_CHI"]."</td>
+                <td>Khách Hàng</td>
+                <td>".$row["TEN_DANG_NHAP"]."</td>
+                <td><a href='/doan/QuanLyNguoiDung/LayThongTinNguoiDung/".$row['MA_ND']."' class='badge badge-warning btn-thao-tac'>Chỉnh Sửa</a>
+                <button class='btn-dark btn-xoaNguoiDung' value='/doan/QuanLyNguoiDung/XoaNguoiDung/".$row['MA_ND']."'>Xóa</button>
+            </tr>
+            ";
+            $stt++;
+        }
+            $output .= "</table><br/><nav><br/><ul class='pagination'>";
+
+            $page_result = mysqli_query($this->conn, "SELECT * FROM nguoi_dung WHERE LOAI_ND = 1");     
+       
+            $tongSoBanGhi = mysqli_num_rows($page_result);
+
+            $tongSoTrang = ceil( $tongSoBanGhi/ $soBanGhiMoiTrang);
+
+            //khách hàng thì gắn class .page-link-khach-hang
                 for($i = 1; $i <= $tongSoTrang ; $i++){
                 
                     if( $trang == $i )
                         $output .= "<li class='page-item'><a class='page-link page-link-khach-hang' style='background-color:#0069D9; color:white ' id='".$i."'>".$i."</a></li>";
                     else
                         $output .= "<li class='page-item'><a class='page-link page-link-khach-hang'  id='".$i."'>".$i."</a></li>";
-                } 
-            }
+                }
 
             return $output;
         }

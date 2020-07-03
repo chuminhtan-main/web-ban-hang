@@ -96,18 +96,40 @@ class ctrl_QuanLyNguoiDung extends Controller
         ]);
     }
 
-    //HÀM LẤY DANH SÁCH NGƯỜI DÙNG SỬ DỤNG AJAX : Tham số -1 là nhân viên - 2 là khách hàng
-    public function AjaxLayDsNguoiDung($loaiNguoiDung , $soBanGhiMoiTrang){
+    //AJAX :Lấy DS Nhân Viên
+    public function AjaxLayDsNhanVien($soBanGhiMoiTrang){
+        
         $trang='';
 
-        if( isset($_POST["page"]) ){
-            $trang = $_POST["page"];
+        //giá trị $_POST["page"] được gửi từ hàm = function load_data_nhan_vien(page) Jquery
+
+        if( isset($_POST["page_nhan_vien"]) ){
+            $trang = $_POST["page_nhan_vien"];
         }
         else{
             $trang = 1;
         }
         
-        $output = $this->md_nguoiDung->LayGioiHanNguoiDung($loaiNguoiDung,$trang, $soBanGhiMoiTrang);
+        $output = $this->md_nguoiDung->AjaxLayDsNhanVien($trang, $soBanGhiMoiTrang);
         echo $output;
     }
+
+        //AJAX :Lấy DS Khách hàng
+        public function AjaxLayDsKhachHang($soBanGhiMoiTrang){
+        
+            $trang='';
+    
+            //giá trị $_POST["page"] được gửi từ hàm = function load_data_nhan_vien(page) Jquery
+    
+            if( isset($_POST["page_khach_hang"]) ){
+                $trang = $_POST["page_khach_hang"];
+            }
+            else{
+                $trang = 1;
+            }
+            
+            $output = $this->md_nguoiDung->AjaxLayDsKhachHang($trang, $soBanGhiMoiTrang);
+            echo $output;
+        }
+
 }
