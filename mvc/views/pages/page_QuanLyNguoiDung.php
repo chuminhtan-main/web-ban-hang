@@ -2,14 +2,14 @@
 <div class="row ket-qua justify-content-between">
 
   <!-- Thông báo kết quả Thêm Mới-->
-  <?php if (isset($data["kq"])) {
+  <?php if (isset($data["kqThem"])) {
 
-    if ($data["kq"] == 'true'){
+    if ($data["kqThem"] == 'true'){
       echo 
             "<script>
             $(document).ready(function() {
               alert('Thêm Mới Thành Công');
-              window.location.replace('/doan/QuanLyNguoiDung');
+
             });
             </script>";
     }
@@ -72,6 +72,7 @@
   } ?>
 </div>
 
+<!-- MAIN -->
 <div class="row justify-content-between">
   <!--Form Thêm Người Dùng - Chỉ hiển thị khi có người dùng chỉnh sửa-->
   <div class="col-md-5">
@@ -204,7 +205,6 @@
 <div class="row">
   <div class="col-md-12" id="danh-sach-nhan-vien">
     
-
   </div>
 </div>
 
@@ -218,13 +218,12 @@
   <div class="col-md-12" id="danh-sach-khach-hang">
 
   </div>
-
-
 </div>
 <div class="row">
 <div id="pagination-data">
 
 </div>
+<!-- AJAX CHO BẢNG DANH SÁCH -->
 <?php echo "
     <script>
     $(document).ready(function() {
