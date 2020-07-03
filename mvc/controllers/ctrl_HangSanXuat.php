@@ -27,8 +27,64 @@
             
             $this->CreateView("view_Admin", [
                 "page"=>"page_HangSanXuat",
-                "kq"=>$kq
+                "kqThem"=>$kq,
+                "dshangsx"=> $this->model_Hang->LayDsHangSX()
             ]);
+        }
+        //HÀM LẤY MỘT NGƯỜI DÙNG BẤT KỲ HIỂN THỊ LÊN FORM SỬA THÔNG TIN
+        public function LayThongTinHang($mahang)
+        {
+
+            $this->CreateView("view_Admin", [
+                "page" => "page_HangSanXuat",
+                "dshangsx"=> $this->model_Hang->LayDsHangSX(),
+                "ThongTinHang" => $this->model_Hang->LayThongTinHang($mahang),
+                //Lấy danh sách mới    
+                "dshangsx"=> $this->model_Hang->LayDsHangSX(),
+            ]);
+        }
+         //HÀM CẬP NHẬT THÔNG TIN 
+        public function CapNhatHang($mahang)
+        {
+            //1. get dữ liệu từ form
+            $ten = $_POST["ten-hang"];
+
+            //2. Cập Nhật Vào DB và Thông báo
+            $this->CreateView("view_Admin", [
+                "page" => "page_HangSanXuat",
+                // cập nhật người dùng
+                "kqCapNhat" => $this->model_Hang->CapNhatHang($mahang, $ten),
+                //Lấy danh sách mới    
+                "dshangsx"=> $this->model_Hang->LayDsHangSX()
+            ]);
+        }
+        //HÀM XÓA NGƯỜI DÙNG
+        public function XoaHang($mahang)
+        {
+            $this->CreateView("view_Admin", [
+                "page" => "page_HangSanXuat",
+                // cập nhật 
+                "kqXoa" => $this->model_Hang->XoaHang($mahang),
+                //Lấy danh sách mới    
+                "dshangsx"=> $this->model_Hang->LayDsHangSX()
+            ]);
+        }
+        //AJAX :Lấy DS Nhân Viên
+        public function AjaxLayDsHang($soBanGhiMoiTrang)
+        {
+
+            $trang = '';
+
+            //giá trị $_POST["page"] được gửi từ hàm = function load_data_nhan_vien(page) Jquery
+
+            if (isset($_POST["page_HangSanXuat"])) {
+                $trang = $_POST["page_HangSanXuat"];
+            } else {
+                $trang = 1;
+            }
+
+            $output = $this->model_Hang->AjaxLayDsHang($trang, $soBanGhiMoiTrang);
+            echo $output;
         }
     }
 ?>

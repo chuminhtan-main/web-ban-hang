@@ -1,3 +1,5 @@
+
+
 <h4 class="tittle">Thêm sản phẩm</h4>
 <form action="/doan/QuanLySanPham/ThemSanPham" method="post" enctype="multipart/form-data">
     <table class="form">               

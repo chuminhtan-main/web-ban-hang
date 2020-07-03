@@ -40,7 +40,7 @@ class ctrl_QuanLyNguoiDung extends Controller
             "view_Admin",
             [
                 "page" => "page_QuanLyNguoiDung",
-                "kq" => $kq,
+                "kqThem" => $kq,
                 //Lấy danh sách mới    
                 "dsNhanVien" => $this->md_nguoiDung->LayDsNguoiDung(1),
                 "dsKhachHang" => $this->md_nguoiDung->LayDsNguoiDung(2)

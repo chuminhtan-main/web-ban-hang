@@ -110,8 +110,10 @@ class model_NguoiDung extends DBConnect
                 <td>".$row["DIA_CHI"]."</td>
                 <td>".$loaiNguoiDung."</td>
                 <td>".$row["TEN_DANG_NHAP"]."</td>
-                <td><a href='/doan/QuanLyNguoiDung/LayThongTinNguoiDung/".$row['MA_ND']."' class='badge badge-warning btn-thao-tac'>Chỉnh Sửa</a>
-                <button class='btn-dark btn-xoaNguoiDung' value='/doan/QuanLyNguoiDung/XoaNguoiDung/".$row['MA_ND']."'>Xóa</button>
+                <td>
+                    <a href='/doan/QuanLyNguoiDung/LayThongTinNguoiDung/".$row['MA_ND']."' class='badge badge-warning btn-thao-tac'>Chỉnh Sửa</a>
+                    <button class='btn-dark btn-xoaNguoiDung' value='/doan/QuanLyNguoiDung/XoaNguoiDung/".$row['MA_ND']."'>Xóa</button>
+                </td>
             </tr>
             ";
             $stt++;

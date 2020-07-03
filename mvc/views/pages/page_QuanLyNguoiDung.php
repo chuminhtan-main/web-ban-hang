@@ -1,76 +1,6 @@
-<!-- KHU VỰC THÔNG BÁO KẾT QUẢ -->
-<div class="row ket-qua justify-content-between">
-
-  <!-- Thông báo kết quả Thêm Mới-->
-  <?php if (isset($data["kq"])) {
-
-    if ($data["kq"] == 'true'){
-      echo 
-            "<script>
-            $(document).ready(function() {
-              alert('Thêm Mới Thành Công');
-              window.location.replace('/doan/QuanLyNguoiDung');
-            });
-            </script>";
-    }
-    else{
-      echo 
-      "<script>
-      $(document).ready(function() {
-        alert('Thêm Mới Không Thành Công');
-        window.location.replace('/doan/QuanLyNguoiDung');
-      });
-      </script>";
-    }
-  } 
+<?php
+    require_once './mvc/views/blocks/block_ThongBaoKetQuaAdmin.php';
 ?>
-
-  <!-- Thông báo kết quả CẬP NHẬT-->
-  <?php if (isset($data["kqCapNhat"])) {
-    if ($data["kqCapNhat"] == 'true')
-    if ($data["kqCapNhat"] == 'true'){
-      echo 
-            "<script>
-            $(document).ready(function() {
-              alert('Cập Nhật Thành Công');
-              window.location.replace('/doan/QuanLyNguoiDung');
-            });
-            </script>";
-    }
-    else{
-      echo 
-      "<script>
-      $(document).ready(function() {
-        alert('Cập Nhật Không Thành Công');
-        window.location.replace('/doan/QuanLyNguoiDung');
-      });
-      </script>";
-    }
-  } ?>
-
-    <!-- Thông báo kết quả XÓA-->
-    <?php if (isset($data["kqXoa"])) {
-    if ($data["kqXoa"] == 'true')
-    if ($data["kqXoa"] == 'true'){
-      echo 
-            "<script>
-            $(document).ready(function() {
-              alert('XóaThành Công');
-              window.location.replace('/doan/QuanLyNguoiDung');
-            });
-            </script>";
-    }
-    else{
-      echo 
-      "<script>
-      $(document).ready(function() {
-        alert('Xóa Không Thành Công');
-        window.location.replace('/doan/QuanLyNguoiDung');
-      });
-      </script>";
-    }
-  } ?>
-</div>
 
 <div class="row justify-content-between">
   <!--Form Thêm Người Dùng - Chỉ hiển thị khi có người dùng chỉnh sửa-->
@@ -204,7 +134,6 @@
 <div class="row">
   <div class="col-md-12" id="danh-sach-nhan-vien">
     
-
   </div>
 </div>
 
@@ -225,6 +154,7 @@
 <div id="pagination-data">
 
 </div>
+</div>
 <?php echo "
     <script>
     $(document).ready(function() {
@@ -233,7 +163,8 @@
 
         $(document).on('click','.btn-xoaNguoiDung',function() {
             var r = confirm('Bạn muốn xóa người dùng ?');
-            if (r == false) {} else
+            if (r == false) {
+            } else
                 window.location.replace($(this).val());
         });
 
@@ -253,7 +184,6 @@
 
 
         function load_data_khach_hang(page){
-          $(this).find('#page').addClass('active');
               $.ajax({
                   url: '/doan/QuanLyNguoiDung/AjaxLayDsKhachHang/5',
                   method: 'POST',
