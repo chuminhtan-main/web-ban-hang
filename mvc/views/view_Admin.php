@@ -5,9 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/doan/public/css/style_Admin.css">
+    <link rel="stylesheet" type="text/css" href="/doan/public/libs/bootstrap.css">
+    <script src="/doan/public/js/jquery.js"></script>
+    <script src="/doan/public/js/bootstrap.js"></script>
     <title>Admin</title>
-    <script src="/doan/public/js/jquery.js"></script>   
-
+    
 </head>
 
 <body>
@@ -18,30 +20,30 @@
                 <!-- menu -->
                 <ul class="nav nav-pills nav-fill">
                     <!-- người dùng -->
-                    <li  class="nav-item">
-                        <a class="nav-link title <?php 
-                            if($data["id"] == "nguoiDung")
-                                echo "active";
+                    <li class="nav-item">
+                        <a class="nav-link title <?php
+                                                    if ($data["id"] == "nguoiDung")
+                                                        echo "active";
 
-                        ?>" href="/doan/QuanLyNguoiDung">Người Dùng</a>
+                                                    ?>" href="/doan/QuanLyNguoiDung">Người Dùng</a>
                     </li>
                     <!-- sản phẩm -->
                     <li id="san-pham" class="nav-item">
-                        <a class="nav-link title <?php 
-                            if($data["id"]=="sanPham")
-                                echo "active";
+                        <a class="nav-link title <?php
+                                                    if ($data["id"] == "sanPham")
+                                                        echo "active";
 
-                        ?>" href="/doan/QuanLySanPham">Sản Phẩm</a>
+                                                    ?>" href="/doan/QuanLySanPham">Sản Phẩm</a>
                     </li>
                     <!-- hóa đơn -->
                     <li id="hoa-don" class="nav-item">
-                        <a class="nav-link title <?php if($data["id"]=="hoaDon") echo "active"; ?>" href="#">Đơn Đặt Hàng</a>     
+                        <a class="nav-link title <?php if ($data["id"] == "hoaDon") echo "active"; ?>" href="#">Đơn Đặt Hàng</a>
                     </li>
-                      <!-- Hãng Sx -->
-                     <li class="nav-item ">
+                    <!-- Hãng Sx -->
+                    <li class="nav-item ">
                         <a class="nav-link title" href="./HangSanXuat">Hãng SX</a>
                     </li>
-                     <!-- cấu hình CPU -->
+                    <!-- cấu hình CPU -->
                     <li class="nav-item ">
                         <a class="nav-link title" href="page_CauHinhSanPham.php">Cấu Hình CPU</a>
                     </li>
@@ -64,10 +66,14 @@
             <div class="col-md-12">
                 <!-- KHU VỰC ĐỔ PAGE VÀO -->
                 <?php
-                    require_once "./mvc/views/pages/".$data["page"].".php";
+                require_once "./mvc/views/pages/" . $data["page"] . ".php";
                 ?>
             </div>
         </div>
     </div>
+    <script>
+
+</script>
 </body>
+
 </html>

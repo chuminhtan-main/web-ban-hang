@@ -48,6 +48,26 @@ th {
 }
 
 .btn-thao-tac {
-    display: block;
     margin: 1px 0;
+    width: 100%;
+}
+
+.btn-xoaNguoiDung {
+    font-size: 10px;
+    width: 100%;
+}
+
+#page-admin .ket-qua {
+    color: white;
+    text-align: center;
+}
+
+#page-admin .ket-qua .thanh-cong {
+    background-color: #218838;
+    width: 100%;
+}
+
+#page-admin .ket-qua .khong-thanh-cong {
+    background-color: #DC3545;
+    width: 100%;
 }

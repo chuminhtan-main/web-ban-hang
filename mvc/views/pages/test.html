@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/doan/public/css/style_Admin.css">
+    <script src="/doan/public/js/jquery.js"></script>
+
+    <title>Document</title>
+    <script>
+        $(document).ready(function() {
+            load_data();
+
+            $('.btn-xoaNguoiDung').click(function(e) {
+                var r = confirm('Bạn muốn xóa người dùng ?');
+                if (r == false) {} else
+                    window.location.replace($(this).val());
+            });
+
+            function load_data(page) {
+                $.ajax({
+                    url: '/doan/mvc/controllers/ajax.php',
+                    method: 'POST',
+                    data: {
+                        page: page
+                    },
+                    success: function(data) {
+                        $('#pagination-data').html(data);
+                    }
+                });
+            }
+
+            $(document).on('click', '.page-link', function() {
+                var page = $(this).attr('id');
+                load_data(page);
+            })
+        });
+    </script>
+</head>
+
+<body>
+    <div class="row">
+        <div id="pagination-data">
+
+        </div>
+        <a href="" id="5" class="page-item">5</a>
+</body>
+<script>
+</script>
+
+</html>
