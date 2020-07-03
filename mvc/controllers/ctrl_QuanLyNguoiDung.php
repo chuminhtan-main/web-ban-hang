@@ -1,7 +1,8 @@
 <?php
-    class ctrl_QuanLyNguoiDung extends Controller{       
-       
-        protected $md_nguoiDung;
+class ctrl_QuanLyNguoiDung extends Controller
+{
+
+    protected $md_nguoiDung;
 
     public function __construct()
     {
@@ -84,7 +85,8 @@
     }
 
     //HÀM XÓA NGƯỜI DÙNG
-    public function XoaNguoiDung($maNguoiDung){
+    public function XoaNguoiDung($maNguoiDung)
+    {
         $this->CreateView("view_Admin", [
             "page" => "page_QuanLyNguoiDung",
             // cập nhật người dùng
@@ -96,39 +98,38 @@
     }
 
     //AJAX :Lấy DS Nhân Viên
-    public function AjaxLayDsNhanVien($soBanGhiMoiTrang){
-        
-        $trang='';
+    public function AjaxLayDsNhanVien($soBanGhiMoiTrang)
+    {
+
+        $trang = '';
 
         //giá trị $_POST["page"] được gửi từ hàm = function load_data_nhan_vien(page) Jquery
 
-        if( isset($_POST["page_nhan_vien"]) ){
+        if (isset($_POST["page_nhan_vien"])) {
             $trang = $_POST["page_nhan_vien"];
-        }
-        else{
+        } else {
             $trang = 1;
         }
-        
+
         $output = $this->md_nguoiDung->AjaxLayDsNhanVien($trang, $soBanGhiMoiTrang);
         echo $output;
     }
 
-        //AJAX :Lấy DS Khách hàng
-        public function AjaxLayDsKhachHang($soBanGhiMoiTrang){
-        
-            $trang='';
-    
-            //giá trị $_POST["page"] được gửi từ hàm = function load_data_nhan_vien(page) Jquery
-    
-            if( isset($_POST["page_khach_hang"]) ){
-                $trang = $_POST["page_khach_hang"];
-            }
-            else{
-                $trang = 1;
-            }
-            
-            $output = $this->md_nguoiDung->AjaxLayDsKhachHang($trang, $soBanGhiMoiTrang);
-            echo $output;
+    //AJAX :Lấy DS Khách hàng
+    public function AjaxLayDsKhachHang($soBanGhiMoiTrang)
+    {
+
+        $trang = '';
+
+        //giá trị $_POST["page"] được gửi từ hàm = function load_data_nhan_vien(page) Jquery
+
+        if (isset($_POST["page_khach_hang"])) {
+            $trang = $_POST["page_khach_hang"];
+        } else {
+            $trang = 1;
         }
 
+        $output = $this->md_nguoiDung->AjaxLayDsKhachHang($trang, $soBanGhiMoiTrang);
+        echo $output;
+    }
 }
