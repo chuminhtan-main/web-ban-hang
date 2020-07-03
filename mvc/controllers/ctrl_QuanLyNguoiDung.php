@@ -1,5 +1,5 @@
 <?php
-    class ctrl_QuanLyNguoiDung extends Controller{
+    class ctrl_QuanLyNguoiDung extends Controller{       
        
         protected $md_nguoiDung;
 

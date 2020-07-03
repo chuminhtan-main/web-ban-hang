@@ -31,7 +31,7 @@
     <?php
     
       if (isset($data["dshangsx"])) {
-        //print_r($data["dsHangSX"]);
+        print_r($data["dshangsx"]);
         $stt = 1;
         foreach ($data["dshangsx"] as $hang) {
       ?>

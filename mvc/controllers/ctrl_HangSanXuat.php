@@ -1,6 +1,6 @@
 <?php
     class ctrl_HangSanXuat extends Controller{
-        private $model_Hang;
+        protected $model_Hang;
         
         public function __construct() {       
             $this->model_Hang = $this->CreateModel("model_HangSanXuat");

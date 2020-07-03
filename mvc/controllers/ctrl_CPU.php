@@ -1,6 +1,6 @@
 <?php
     class ctrl_CPU extends Controller{
-        private $m_CPU;
+        protected $m_CPU;
         
         public function __construct() {       
             $this->m_CPU = $this->CreateModel("model_CPU");

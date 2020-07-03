@@ -1,6 +1,6 @@
 <?php
     class ctrl_RAM extends Controller{
-        private $m_RAM;
+        protected $m_RAM;
         
         public function __construct() {       
             $this->m_RAM = $this->CreateModel("model_Ram");
