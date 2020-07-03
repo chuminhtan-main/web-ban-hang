@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!-- KHU VỰC THÔNG BÁO KẾT QUẢ -->
 <div class="row ket-qua justify-content-between">
 

@@ -9,7 +9,7 @@
             "<script>
             $(document).ready(function() {
               alert('Thêm Mới Thành Công');
-
+              window.location.replace('/doan/QuanLyNguoiDung');
             });
             </script>";
     }
