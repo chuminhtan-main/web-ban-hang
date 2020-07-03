@@ -1,6 +1,6 @@
 <?php
     class ctrl_HangSanXuat extends Controller{
-        private $model_Hang;
+        protected $model_Hang;
         
         public function __construct() {       
             $this->model_Hang = $this->CreateModel("model_HangSanXuat");
@@ -8,10 +8,12 @@
         
         public function show(){
             $this->CreateView("view_Admin",[
-                "page"=>"page_HangSanXuat"
+                "page"=>"page_HangSanXuat",
+                "id"=>"hangsx",
+                "dshangsx"=> $this->model_Hang->LayDsHangSX()
                 ]);
         }
-     
+        
         public function abc(){
             echo "Ham abc";
         }

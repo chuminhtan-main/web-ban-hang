@@ -1,8 +1,7 @@
 <?php
-class ctrl_QuanLyNguoiDung extends Controller
-{
-
-    protected $md_nguoiDung;
+    class ctrl_QuanLyNguoiDung extends Controller{       
+       
+        protected $md_nguoiDung;
 
     public function __construct()
     {

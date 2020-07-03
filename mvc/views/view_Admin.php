@@ -5,9 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/doan/public/css/style_Admin.css">
+<<<<<<< HEAD
     <link rel="stylesheet" type="text/css" href="/doan/public/libs/bootstrap.css">
     <script src="/doan/public/js/jquery.js"></script>
     <script src="/doan/public/js/bootstrap.js"></script>
+=======
+    <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+>>>>>>> cd5985bde4cc772c34ae615dc0281e207f919540
     <title>Admin</title>
     
 </head>
@@ -39,17 +43,17 @@
                     <li id="hoa-don" class="nav-item">
                         <a class="nav-link title <?php if ($data["id"] == "hoaDon") echo "active"; ?>" href="#">Đơn Đặt Hàng</a>
                     </li>
-                    <!-- Hãng Sx -->
-                    <li class="nav-item ">
-                        <a class="nav-link title" href="./HangSanXuat">Hãng SX</a>
+                      <!-- Hãng Sx -->
+                     <li class="nav-item ">
+                        <a class="nav-link title" href="/doan/HangSanXuat">Hãng SX</a>
                     </li>
                     <!-- cấu hình CPU -->
                     <li class="nav-item ">
-                        <a class="nav-link title" href="page_CauHinhSanPham.php">Cấu Hình CPU</a>
+                        <a class="nav-link title" href="/doan/CPU">Cấu Hình CPU</a>
                     </li>
                     <!-- cấu hình Ram -->
                     <li class="nav-item ">
-                        <a class="nav-link title" href="page_CauHinhSanPham.php">Cấu Hình RAM</a>
+                        <a class="nav-link title" href="/doan/RAM">Cấu Hình RAM</a>
                     </li>
                 </ul>
             </div>

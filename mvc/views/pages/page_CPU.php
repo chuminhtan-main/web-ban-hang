@@ -1,8 +1,8 @@
 <div>
-    <form action="/doan/HangSanXuat/ThemHang" method="post">
+    <form action="/doan/CPU/ThemCPU" method="post">
   <div class="form-group">
-    <label for="ten-hang">Tên Hãng Sản Xuất</label>
-    <input type="text" class="form-control" id="ten-hang-sx" placeholder="Tên Hãng Sản Xuất" name="ten-hang" required>
+    <label for="CPU">Tên CPU</label>
+    <input type="text" class="form-control" id="ten-hang-sx" placeholder="Tên CPU" name="CPU" required>
   </div>
 
   <button type="submit" class="btn btn-primary">Tạo Mới</button>
@@ -18,26 +18,26 @@
   </p>
 </form>
 </div>
-<!-- Danh sách hãng sx -->
+<!-- Danh sách CPU -->
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">Mã hãng sản suất</th>
-      <th scope="col">Tên Hãng sản xuất</th>
+      <th scope="col">Mã CPU</th>
+      <th scope="col">Tên CPU</th>
       <th scope="col">Thao tác</th>
     </tr>
   </thead>
   <tbody>
     <?php
     
-      if (isset($data["dshangsx"])) {
-        print_r($data["dshangsx"]);
+      if (isset($data["dsCPU"])) {
+        //print_r($data["dsCPU"]);
         $stt = 1;
-        foreach ($data["dshangsx"] as $hang) {
+        foreach ($data["dsCPU"] as $CPU) {
       ?>
           <tr>
             <td><?php echo $stt ?></td>
-            <td><?php echo $hang['TEN_HANG'] ?></td>
+            <td><?php echo $CPU['TEN_CPU'] ?></td>
             <td>
               <button type="button" class="btn btn-danger btn-thao-tac">Xóa</button>
               <button type="button" class="btn btn-warning btn-thao-tac">Chỉnh Sửa</button>
