@@ -112,7 +112,7 @@ class model_NguoiDung extends DBConnect
                 <td>".$row["TEN_DANG_NHAP"]."</td>
                 <td>
                     <a href='/doan/QuanLyNguoiDung/LayThongTinNguoiDung/".$row['MA_ND']."' class='badge badge-warning btn-thao-tac'>Chỉnh Sửa</a>
-                    <button class='btn-dark btn-xoaNguoiDung' value='/doan/QuanLyNguoiDung/XoaNguoiDung/".$row['MA_ND']."'>Xóa</button>
+                    <button class='btn-dark btn-xoa' value='/doan/QuanLyNguoiDung/XoaNguoiDung/".$row['MA_ND']."'>Xóa</button>
                 </td>
             </tr>
             ";
@@ -178,7 +178,7 @@ class model_NguoiDung extends DBConnect
                 <td>Khách Hàng</td>
                 <td>".$row["TEN_DANG_NHAP"]."</td>
                 <td><a href='/doan/QuanLyNguoiDung/LayThongTinNguoiDung/".$row['MA_ND']."' class='badge badge-warning btn-thao-tac'>Chỉnh Sửa</a>
-                <button class='btn-dark btn-xoaNguoiDung' value='/doan/QuanLyNguoiDung/XoaNguoiDung/".$row['MA_ND']."'>Xóa</button>
+                <button class='btn-dark btn-xoa' value='/doan/QuanLyNguoiDung/XoaNguoiDung/".$row['MA_ND']."'>Xóa</button>
             </tr>
             ";
             $stt++;

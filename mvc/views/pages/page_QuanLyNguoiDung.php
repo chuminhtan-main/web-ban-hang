@@ -1,4 +1,4 @@
-<<<<<<< HEAD <!-- KHU VỰC THÔNG BÁO KẾT QUẢ -->
+ <!-- KHU VỰC THÔNG BÁO KẾT QUẢ -->
   <div class="row ket-qua justify-content-between">
 
     <!-- Thông báo kết quả Thêm Mới-->
@@ -70,12 +70,6 @@
   </div>
 
   <!-- MAIN -->
-  =======
-  <?php
-  require_once './mvc/views/blocks/block_ThongBaoKetQuaAdmin.php';
-  ?>
-
-  >>>>>>> feature/thanh
   <div class="row justify-content-between">
     <!--Form Thêm Người Dùng - Chỉ hiển thị khi có người dùng chỉnh sửa-->
     <div class="col-md-5">
@@ -121,7 +115,6 @@
         <div class="form-row">
           <div class="form-group col-md-3">
             <button type="submit" class="btn btn-primary">Tạo Mới</button>
-
           </div>
         </div>
 
@@ -222,10 +215,6 @@
 
     </div>
   </div>
-  <div class="row">
-    <div id="pagination-data">
-
-    </div>
   </div>
   
 <!-- AJAX CHO BẢNG DANH SÁCH -->
