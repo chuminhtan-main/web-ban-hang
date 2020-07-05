@@ -66,12 +66,19 @@ class model_HangSanXuat extends DBConnect{
         
         $batDau = ($trang - 1) * $soBanGhiMoiTrang;
         
-        $query = "SELECT * FROM hang_sx LIMIT $batDau, $soBanGhiMoiTrang";
+        $query = "SELECT * FROM hang_sx ORDER BY MA_HANG DESC LIMIT $batDau, $soBanGhiMoiTrang";
 
         $result = mysqli_query($this->conn,$query);
 
         $output .= "
+        <div class='chua-bang-danh-sach'>
             <table class='table-danh-sach'>
+            <colgroup>
+            <col span='1'style='width: 10%;'>
+            <col span='1'style='width: 10%;'>
+            <col span='1'style='width: 70%;'>
+            <col span='1'style='width: 10%;'>
+          </colgroup>
                 <tr>
                     <th>STT</th>
                     <th>Mã</th>
@@ -90,13 +97,13 @@ class model_HangSanXuat extends DBConnect{
                 <td>".$row["TEN_HANG"]."</td>
                 <td>
                     <a href='/doan/HangSanXuat/LayThongTinHang/".$row['MA_HANG']."' class='badge badge-warning btn-thao-tac'>Chỉnh Sửa</a>
-                    <button class='btn-dark btn-xoaHang' value='/doan/HangSanXuat/XoaHang/".$row['MA_HANG']."'>Xóa</button>
+                    <button class='btn-dark btn-xoa btn-xoaHang' value='/doan/HangSanXuat/XoaHang/".$row['MA_HANG']."'>Xóa</button>
                 </td>
             </tr>
             ";
             $stt++;
         }
-            $output .= "</table><br/><nav><br/><ul class='pagination'>";
+            $output .= "</table></div><br/><nav><br/><ul class='pagination'>";
 
             $page_result = mysqli_query($this->conn, "SELECT * FROM hang_sx");     
        

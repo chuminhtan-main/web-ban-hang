@@ -64,16 +64,23 @@ class model_Ram extends DBConnect{
         
         $batDau = ($trang - 1) * $soBanGhiMoiTrang;
         
-        $query = "SELECT * FROM ram LIMIT $batDau, $soBanGhiMoiTrang";
+        $query = "SELECT * FROM ram ORDER BY MA_RAM DESC LIMIT $batDau, $soBanGhiMoiTrang";
 
         $result = mysqli_query($this->conn,$query);
 
         $output .= "
+        <div class='chua-bang-danh-sach'>
             <table class='table-danh-sach'>
+            <colgroup>
+            <col span='1'style='width: 10%;'>
+            <col span='1'style='width: 10%;'>
+            <col span='1'style='width: 70%;'>
+            <col span='1'style='width: 10%;'>
+          </colgroup>
                 <tr>
                     <th>STT</th>
                     <th>Mã RAM</th>
-                    <th>Tên Bộ nhớ</th>
+                    <th>Bộ Nhớ</th>
                     <th>Thao Tác</th>
                 </tr>
         ";
@@ -88,13 +95,13 @@ class model_Ram extends DBConnect{
                 <td>".$row["BO_NHO"]."</td>
                 <td>
                     <a href='/doan/RAM/LayThongTinRAM/".$row['MA_RAM']."' class='badge badge-warning btn-thao-tac'>Chỉnh Sửa</a>
-                    <button class='btn-dark btn-xoaRAM' value='/doan/RAM/XoaRAM/".$row['MA_RAM']."'>Xóa</button>
+                    <button class='btn-dark btn-xoa btn-xoaRAM' value='/doan/RAM/XoaRAM/".$row['MA_RAM']."'>Xóa</button>
                 </td>
             </tr>
             ";
             $stt++;
         }
-            $output .= "</table><br/><nav><br/><ul class='pagination'>";
+            $output .= "</table></div><br/><nav><br/><ul class='pagination'>";
 
             $page_result = mysqli_query($this->conn, "SELECT * FROM ram");     
        

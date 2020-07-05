@@ -8,16 +8,16 @@
         echo
           "<script>
             $(document).ready(function() {
+              window.location.replace('/doan/QuanLyNguoiDung');
               alert('Thêm Mới Thành Công');
-
             });
             </script>";
       } else {
         echo
           "<script>
       $(document).ready(function() {
-        alert('Thêm Mới Không Thành Công');
         window.location.replace('/doan/QuanLyNguoiDung');
+        alert('Thêm Mới Không Thành Công');
       });
       </script>";
       }
@@ -31,16 +31,16 @@
           echo
             "<script>
             $(document).ready(function() {
-              alert('Cập Nhật Thành Công');
               window.location.replace('/doan/QuanLyNguoiDung');
+              alert('Cập Nhật Thành Công');
             });
             </script>";
         } else {
           echo
             "<script>
       $(document).ready(function() {
-        alert('Cập Nhật Không Thành Công');
         window.location.replace('/doan/QuanLyNguoiDung');
+        alert('Cập Nhật Không Thành Công');
       });
       </script>";
         }
@@ -53,16 +53,16 @@
           echo
             "<script>
             $(document).ready(function() {
-              alert('XóaThành Công');
               window.location.replace('/doan/QuanLyNguoiDung');
+              alert('XóaThành Công');
             });
             </script>";
         } else {
           echo
             "<script>
       $(document).ready(function() {
-        alert('Xóa Không Thành Công');
         window.location.replace('/doan/QuanLyNguoiDung');
+        alert('Xóa Không Thành Công');
       });
       </script>";
         }
@@ -70,6 +70,9 @@
   </div>
 
   <!-- MAIN -->
+  <div class="container-fluid">
+
+ 
   <div class="row justify-content-between">
     <!--Form Thêm Người Dùng - Chỉ hiển thị khi có người dùng chỉnh sửa-->
     <div class="col-md-5">
@@ -189,26 +192,27 @@
     <?php
     }
     ?>
-
-
+ </div>
   </div>
   <!-- 
   DANH SÁCH NHÂN VIÊN
   Thẻ h4 chứa class title
   Table chứa class table-danh-sach
 -->
+<div class="container-fluid">
   <h4 class="title">Danh Sách Nhân Viên</h4>
   <div class="row">
     <div class="col-md-12" id="danh-sach-nhan-vien">
 
     </div>
   </div>
-
+</div>
   <!-- 
   DANH SÁCH KHÁCH HÀNG
   Thẻ h4 chứa class title
   Table chứa class table-danh-sach
 -->
+<div class="container-fluid">
   <h4 class="title">Danh Sách Khách Hàng</h4>
   <div class="row">
     <div class="col-md-12" id="danh-sach-khach-hang">
@@ -216,7 +220,7 @@
     </div>
   </div>
   </div>
-  
+  </div>
 <!-- AJAX CHO BẢNG DANH SÁCH -->
   <?php echo "
     <script>

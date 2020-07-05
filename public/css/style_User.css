@@ -48,7 +48,7 @@ a:hover {
 }
 
 ul#nav-header>li {
-    width: 25%;
+    width: 33%;
 }
 
 ul#nav-header a {
@@ -76,7 +76,7 @@ ul#nav-header a>img {
 }
 
 #cart {
-    text-align: right;
+    text-align: left;
     padding-top: 3%;
     padding-right: 0;
 }
@@ -177,4 +177,62 @@ div.gia strong {
     font-size: 14px;
     color: #e10c00;
     line-height: 15px;
+}
+
+.icon-user {
+    background: url("../images/iconNav/user-white.png") top right no-repeat;
+    height: 30px;
+    display: inline-block;
+}
+
+.icon-user-taotk {
+    background: url("../images/iconNav/key-white.png") top right no-repeat;
+    height: 30px;
+    display: inline-block;
+}
+
+#thong-tin-tai-khoan {
+    padding: 0 0 0 10px;
+}
+
+#thong-tin-tai-khoan>a {
+    background-color: #0069D9;
+    color: white;
+    display: block;
+    text-align: center;
+}
+
+#thong-tin-tai-khoan>a:hover {
+    text-decoration: none;
+    border: 2px solid white;
+}
+
+.link-tai-khoan {
+    color: white;
+}
+
+.taga-tai-khoan {
+    width: 100%;
+    background-color: #0069D9;
+    margin: 4px 0 0 0;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.taga-dang-ky {
+    background-color: #218838;
+}
+
+.taga-dang-nhap {
+    background-color: #C82333;
+    font-size: 12px;
+}
+
+.taga-tai-khoan:hover {
+    text-decoration: none;
+    /* border: 1px solid white; */
+    font-weight: bold;
+    color: white;
 }

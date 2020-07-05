@@ -6,6 +6,9 @@ class ctrl_QuanLySanPham extends Controller
     protected $md_CPU;
     protected $md_RAM;
 
+    //THÔNG TIN THƯ MỤC GỐC HIỂN THỊ ẢNH
+    protected $root_folder_img = "/doan/";
+
     public function __construct()
     {
         $this->md_SanPham = $this->CreateModel("model_SanPham");
@@ -17,10 +20,10 @@ class ctrl_QuanLySanPham extends Controller
     {
         $this->CreateView("view_Admin", [
             "page" => "page_QuanLySanPham",
+            "id" => "tab-san-pham",
             "dshangsx" => $this->md_Hang->LayDsHangSX(),
             "dsCPU" => $this->md_CPU->LayDsCPU(),
-            "dsRAM" => $this->md_RAM->LayDsRAM(),
-            "id" => "sanPham"
+            "dsRAM" => $this->md_RAM->LayDsRAM()
         ]);
     }
 
@@ -65,6 +68,7 @@ class ctrl_QuanLySanPham extends Controller
                         "view_Admin",
                         [
                             "page" => "page_QuanLySanPham",
+                            "id" => "tab-san-pham",
                             "kqThem" => $kqThem
                         ]
                     );
@@ -76,6 +80,7 @@ class ctrl_QuanLySanPham extends Controller
                 "view_Admin",
                 [
                     "page" => "page_QuanLySanPham",
+                    "id" => "tab-san-pham",
                     "kqThem" => "false",
                     "kqUploadThem"=>"false"
                 ]
@@ -106,7 +111,20 @@ class ctrl_QuanLySanPham extends Controller
         //TẠO BẢNG DỮ LIỆU
         $output .=
             "
-        <table class='table-danh-sach'>
+            <div class='chua-bang-danh-sach'>
+            <table class='table-danh-sach'>
+        <colgroup>
+        <col span='1'style='width: 5%;'>
+        <col span='1'style='width: 5%;'>
+        <col span='1'style='width: 10%;'>
+        <col span='1'style='width: 10%;'>
+        <col span='1'style='width: 10%;'>
+        <col span='1'style='width: 10%;'>
+        <col span='1'style='width: 10%;'>
+        <col span='1'style='width: 10%;'>
+        <col span='1'style='width: 5%;'>
+        <col span='1'style='width: 5%;'>
+      </colgroup>
             <tr>
                 <th>STT</th>
                 <th>Mã SP</th>
@@ -115,9 +133,9 @@ class ctrl_QuanLySanPham extends Controller
                 <th>CPU</th>
                 <th>RAM</th>
                 <th>Giá</th>
-                <th>TT</th>
                 <th>Mô Tả</th>
-                <th>Thao Tác</th>
+                <th>Trạng Thái</th>
+                <th style='width: 100px;'>Thao Tác</th>
             </tr>
     ";
 
@@ -133,11 +151,13 @@ class ctrl_QuanLySanPham extends Controller
 
             //THÊM TỪNG DÒNG VÀO BẢNG
             $tt = '';
-
+            $btn_trang_thai = '';
             if ($sp->getTrang_thai() == 1) {
-                $tt = 'Mở';
+                $tt = "Mở Bán";
+                $btn_trang_thai = "<button type='button' class='btn-ngung-ban btn-danger' value='/doan/QuanLySanPham/ThayDoiTrangThaiSanPham/".$sp->getMa_sp()."/0'>Ngừng Bán</button>";
             } else {
-                $tt = 'Đóng';
+                $tt = 'Ngừng Bán';
+                $btn_trang_thai = "<button type='button' class='btn-mo-ban btn-success' value='/doan/QuanLySanPham/ThayDoiTrangThaiSanPham/".$sp->getMa_sp()."/1'>Mở Bán</button>";
             }
 
             $output .= "
@@ -149,18 +169,19 @@ class ctrl_QuanLySanPham extends Controller
             <td>" . $sp->getModel_cpu()['TEN_CPU'] . "</td>
             <td>" . $sp->getModel_ram()['BO_NHO'] . "GB</td>
             <td>" . $sp->getGia() . "</td>
-            <td>" . $tt . "</td>
             <td>" . $sp->getMo_ta() . "</td>
+            <td>" . $tt. "</td>
             <td>
                 <a href='/doan/QuanLySanPham/LayThongTinSanPham/" . $sp->getMa_sp() . "' class='badge badge-warning btn-thao-tac'>Chỉnh Sửa</a>
-                <button class='btn-dark btn-xoa' value='/doan/QuanLySanPham/XoaSanPham" . $sp->getMa_sp() . "'>Xóa</button>
-            </td>
-            </tr>         
+                <button class='btn-dark btn-xoa' value='/doan/QuanLySanPham/XoaSanPham" . $sp->getMa_sp() . "'>Xóa</button>"
+                .$btn_trang_thai."</td>
+            
+        </tr>         
             ";
         }
 
         //KẾT THÚC BẢNG
-        $output .= "</table><br/><nav><br/><ul class='pagination'>";
+        $output .= "</table></div><br/><nav><br/><ul class='pagination'>";
 
         //LẤY SỐ TRANG
         $soTrang = $this->md_SanPham->LaySoLuongTrang($trang, $soBanGhiMoiTrang);
@@ -172,7 +193,7 @@ class ctrl_QuanLySanPham extends Controller
                 $output .= "<li class='page-item'><a class='page-link page-link-san-pham' style='background-color:#0069D9; color:white ' id='" . $i . "'>" . $i . "</a></li>";
             else
                 $output .= "<li class='page-item'><a class='page-link page-link-san-pham'  id='" . $i . "'>" . $i . "</a></li>";
-        }
+            }
         echo $output;
     }
 
@@ -182,6 +203,7 @@ class ctrl_QuanLySanPham extends Controller
 
         $this->CreateView("view_Admin", [
             "page" => "page_QuanLySanPham",
+            "id" => "tab-san-pham",
             "dshangsx" => $this->md_Hang->LayDsHangSX(),
             "dsCPU" => $this->md_CPU->LayDsCPU(),
             "dsRAM" => $this->md_RAM->LayDsRAM(),
@@ -223,6 +245,7 @@ class ctrl_QuanLySanPham extends Controller
                     "view_Admin",
                     [
                         "page" => "page_QuanLySanPham",
+                        "id" => "tab-san-pham",
                         "kqCapNhat" => $kqCapNhat
                     ]
                 );
@@ -232,6 +255,7 @@ class ctrl_QuanLySanPham extends Controller
                 $this->CreateView("view_Admin",
                 [
                     "page"=>"page_QuanLySanPham",
+                    "id" => "tab-san-pham",
                     "kqCapNhat"=>'false',
                     "kqUploadCapNhat"=>'false'
                 ]);
@@ -271,4 +295,16 @@ class ctrl_QuanLySanPham extends Controller
                return $upload_thanh_cong; 
             
         }
+
+    // HÀM THÀY ĐỔI TRẠNG THÁI SẢN PHẨM
+    public function ThayDoiTrangThaiSanPham($ma_sp,$tt){
+        $this->CreateView("view_Admin",
+        [
+            "page"=>"page_QuanLySanPham",
+            "id" => "tab-san-pham",
+            "kqThayDoiTrangThai"=>$this->md_SanPham->ThayDoiTrangThaiSanPham($ma_sp,$tt),
+            "tt"=>$tt
+        ]);
+    }
+
 }

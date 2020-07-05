@@ -9,7 +9,7 @@
         public function show(){
             $this->CreateView("view_Admin",[
                 "page"=>"page_HangSanXuat",
-                "id"=>"hangsx",
+                "id"=>"tab-hang-san-xuat",
                 "dshangsx"=> $this->model_Hang->LayDsHangSX()
                 ]);
         }
@@ -27,6 +27,7 @@
             
             $this->CreateView("view_Admin", [
                 "page"=>"page_HangSanXuat",
+                "id"=>"tab-hang-san-xuat",
                 "kqThem"=>$kq,
                 "dshangsx"=> $this->model_Hang->LayDsHangSX()
             ]);
@@ -37,6 +38,7 @@
 
             $this->CreateView("view_Admin", [
                 "page" => "page_HangSanXuat",
+                "id"=>"tab-hang-san-xuat",
                 "dshangsx"=> $this->model_Hang->LayDsHangSX(),
                 "ThongTinHang" => $this->model_Hang->LayThongTinHang($mahang),
                 //Lấy danh sách mới    
@@ -52,6 +54,7 @@
             //2. Cập Nhật Vào DB và Thông báo
             $this->CreateView("view_Admin", [
                 "page" => "page_HangSanXuat",
+                "id"=>"tab-hang-san-xuat",
                 // cập nhật người dùng
                 "kqCapNhat" => $this->model_Hang->CapNhatHang($mahang, $ten),
                 //Lấy danh sách mới    
@@ -63,6 +66,7 @@
         {
             $this->CreateView("view_Admin", [
                 "page" => "page_HangSanXuat",
+                "id"=>"tab-hang-san-xuat",
                 // cập nhật 
                 "kqXoa" => $this->model_Hang->XoaHang($mahang),
                 //Lấy danh sách mới    

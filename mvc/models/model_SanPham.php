@@ -68,7 +68,7 @@ class model_SanPham extends DBConnect
 
         $batDau = ($trang - 1) * $soBanGhiMoiTrang;
         
-        $query = "SELECT * FROM san_pham LIMIT $batDau, $soBanGhiMoiTrang";
+        $query = "SELECT * FROM san_pham ORDER BY MA_SP DESC LIMIT $batDau, $soBanGhiMoiTrang";
 
         $result = mysqli_query($this->conn,$query);
 
@@ -130,4 +130,13 @@ class model_SanPham extends DBConnect
         
         return json_encode($result);
     }
+
+            //HÀM THAY ĐỔI TRẠNG THÁI SẢN PHẨM
+            public function ThayDoiTrangThaiSanPham($ma_sp,$tt){
+
+                $sql = "UPDATE san_pham SET TRANG_THAI = $tt WHERE MA_SP =$ma_sp";
+    
+                $result = mysqli_query($this->conn,$sql);
+                return $result;
+            }
 }

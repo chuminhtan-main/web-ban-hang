@@ -1,7 +1,7 @@
 <!-- KHU VỰC THÔNG BÁO KẾT QUẢ -->
 <div class="row ket-qua justify-content-between">
 
-  <!-- Thông báo kết quả Thêm Mới-->
+  <!-- THÔNG BÁO KẾT QUẢ Thêm Mới-->
   <?php if (isset($data["kqThem"])) {
 
     if ($data["kqThem"] == 'true') {
@@ -34,7 +34,7 @@
   }
   ?>
 
-  <!-- Thông báo kết quả CẬP NHẬT-->
+  <!-- THÔNG BÁO KẾT QUẢ CẬP NHẬT-->
   <?php if (isset($data["kqCapNhat"])) {
 
       if ($data["kqCapNhat"] == 'true') {
@@ -67,7 +67,7 @@
       }
   } ?>
 
-  <!-- Thông báo kết quả XÓA-->
+  <!-- THÔNG BÁO KẾT QUẢ XÓA-->
   <?php if (isset($data["kqXoa"])) {
     if ($data["kqXoa"] == 'true')
       if ($data["kqXoa"] == 'true') {
@@ -90,10 +90,35 @@
   } ?>
 </div>
 
-<!-- row -->
-<div class="row justify-content-between">
+  <!-- THÔNG BÁO KẾT QUẢ THAY ĐỔI TRẠNG THÁI-->
+  <?php if (isset($data["kqThayDoiTrangThai"])) {
 
-  <!-- Form Thêm -->
+if ($data["kqThayDoiTrangThai"] == 'true') {
+  echo
+    "<script>
+      $(document).ready(function() {
+        alert('Đổi trạng thái sản phẩm thành công');
+        window.location.replace('/doan/QuanLySanPham');
+      });
+      </script>";
+} else {
+
+  if (isset($data["kqUploadCapNhat"])) {
+    echo
+    "<script>
+    $(document).ready(function() {
+      alert('Đổi trạng thái sản phẩm không thành công');
+      window.location.replace('/doan/QuanLySanPham');
+    });
+    </script>";
+  } 
+}
+} ?>
+
+<!--DIV ROW -->
+<div class="container-fluid">
+<div class="row justify-content-between">
+  <!--  FORM THÊM -->
   <div class="col-md-5">
     <h4 class="title">Thêm sản phẩm</h4>
     <form method="POST" action="/doan/QuanLySanPham/ThemSanPham" enctype="multipart/form-data">
@@ -168,22 +193,31 @@
       <div class="input-group form-row">
         <div class="form-group col-md-12">
           <div class="custom-file">
-            <input type="file" class="custom-file-input" id="input-them" aria-describedby="inputGroupFileAddon01" name="file-anh">
+            <input type="file" class="custom-file-input" id="input-them"  accept="image/gif, image/jpeg, image/png" aria-describedby="inputGroupFileAddon01" name="file-anh">
             <label class="custom-file-label" for="inputGroupFile01">Chọn Ảnh</label>
           </div>
         </div>
+      </div>
 
+      <!-- PICTURE UPLOAD -->
+      <div class="form-group">
+            <label for="anh-upload">Ảnh sản phẩm</label>
+            <div class="show-img-upload">
+              <img id="img-upload-them-sp" src=""  class="img-upload">
+
+            </div>
       </div>
       <!-- BUTTON SUBMIT -->
       <div class="form-row">
-        <div class="form-group col-md-3">
+        <div class="form-group col-md-3  justify-content-between">
           <button type="submit" class="btn btn-primary">Tạo Mới</button>
         </div>
       </div>
     </form>
   </div>
 
-  <!-- Form Cập Nhật -->
+
+  <!-- FORM CẬP NHẬT -->
   <?php
   if (isset($data["sp"])) { ?>
     <div class="col-md-5">
@@ -276,23 +310,35 @@
         <div class="input-group form-row">
           <div class="form-group col-md-12">
             <div class="custom-file">
-              <input type="file" class="custom-file-input" id="input-cap-nhat" aria-describedby="inputGroupFileAddon01" name="file-anh">
+              <input type="file" class="custom-file-input" id="input-cap-nhat" accept="image/gif, image/jpeg, image/png" aria-describedby="inputGroupFileAddon01" name="file-anh">
               <label class="custom-file-label" for="file-name">Chọn Ảnh</label>
             </div>
           </div>
+        </div>
+
+
+                <!-- PICTURE UPLOAD -->
+                <div class="form-group">
+            <label for="anh-upload">Ảnh sản phẩm</label>
+            <div class="show-img-upload">
+              <img id="img-upload-cap-nhat-sp" src="/doan/<?php echo $data["sp"]["SRC_IMG"] ?>"  class="img-upload">
+            </div>
+      </div>
         <!-- input hidden Lưu đường dẫn ảnh -->
-        <input type="hidden" value="<?php echo $data["sp"]["SRC_IMG"] ?>" name="img">
+          <input type="hidden" value="<?php echo $data["sp"]["SRC_IMG"] ?>" name="img">
+
           <!-- BUTTON SUBMIT -->
           <div class="form-row">
-            <div class="form-group col-md-3">
               <button type="submit" class="btn btn-primary">Cập Nhật</button>
-            </div>
           </div>
+
+
       </form>
     </div>
   <?php
   }
   ?>
+</div>
 </div>
 
 <div class="container-fluid">
@@ -319,6 +365,21 @@
                 window.location.replace($(this).val());
         });
 
+        $(document).on('click', '.btn-ngung-ban', function(){
+          var r = confirm('Bạn muốn ngừng bán sản phẩm này ?');
+          if( r== true){
+            window.location.replace($(this).val());
+          }
+        });
+
+        $(document).on('click', '.btn-mo-ban', function(){
+          var r = confirm('Bạn muốn mở bán sản phẩm này ?');
+          if( r== true){
+            window.location.replace($(this).val());
+          }
+        });
+
+
         function load_data_san_pham(page) {
             $.ajax({
                 url: '/doan/QuanLySanPham/AjaxLayDsSanPham/5',
@@ -341,8 +402,9 @@
         $('#input-them').on('change',function(){
           //get the file name
           var fileName = $(this).val();
-          //replace the 'Choose a file' label
+          //replace the 'Ảnh sản phẩm' label
           $(this).next('.custom-file-label').html(fileName);
+          $('#img-upload-them-sp').attr('src', URL.createObjectURL(event.target.files[0]));
       });
 
       $('#input-cap-nhat').on('change',function(){
@@ -350,8 +412,9 @@
         var fileName = $(this).val();
         //replace the 'Choose a file' label
         $(this).next('.custom-file-label').html(fileName);
+        //hiển thị hình
+        $('#img-upload-cap-nhat-sp').attr('src', URL.createObjectURL(event.target.files[0]));
     })
-
-    });
+});
 </script>";
 ?>

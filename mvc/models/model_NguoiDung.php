@@ -76,12 +76,24 @@ class model_NguoiDung extends DBConnect
         
         $batDau = ($trang - 1) * $soBanGhiMoiTrang;
         
-        $query = "SELECT * FROM nguoi_dung WHERE LOAI_ND = 1 LIMIT $batDau, $soBanGhiMoiTrang";
+        $query = "SELECT * FROM nguoi_dung WHERE LOAI_ND = 1 ORDER BY MA_ND DESC LIMIT $batDau, $soBanGhiMoiTrang";
 
         $result = mysqli_query($this->conn,$query);
 
         $output .= "
+        <div class='chua-bang-danh-sach'>
             <table class='table-danh-sach'>
+            <colgroup>
+            <col span='1'style='width: 2%;'>
+            <col span='1'style='width: 5%;'>
+            <col span='1'style='width: 15%;'>
+            <col span='1'style='width: 15%;'>
+            <col span='1'style='width: 10%;'>
+            <col span='1'style='width: 10%;'>
+            <col span='1'style='width: 10%;'>
+            <col span='1'style='width: 10%;'>
+            <col span='1'style='width: 5%;'>
+          </colgroup>
                 <tr>
                     <th>STT</th>
                     <th>Mã</th>
@@ -118,7 +130,7 @@ class model_NguoiDung extends DBConnect
             ";
             $stt++;
         }
-            $output .= "</table><br/><nav><br/><ul class='pagination'>";
+            $output .= "</table></div><br/><nav><br/><ul class='pagination'>";
 
             $page_result = mysqli_query($this->conn, "SELECT * FROM nguoi_dung WHERE LOAI_ND = 1");     
        
@@ -145,12 +157,24 @@ class model_NguoiDung extends DBConnect
         
         $batDau = ($trang - 1) * $soBanGhiMoiTrang;
         
-        $query = "SELECT * FROM nguoi_dung WHERE LOAI_ND = 2 LIMIT $batDau, $soBanGhiMoiTrang";
+        $query = "SELECT * FROM nguoi_dung WHERE LOAI_ND = 2 ORDER BY MA_ND DESC LIMIT $batDau, $soBanGhiMoiTrang";
 
         $result = mysqli_query($this->conn,$query);
 
         $output .= "
+        <div class='chua-bang-danh-sach'>
             <table class='table-danh-sach'>
+            <colgroup>
+            <col span='1'style='width: 2%;'>
+            <col span='1'style='width: 5%;'>
+            <col span='1'style='width: 15%;'>
+            <col span='1'style='width: 15%;'>
+            <col span='1'style='width: 10%;'>
+            <col span='1'style='width: 10%;'>
+            <col span='1'style='width: 10%;'>
+            <col span='1'style='width: 10%;'>
+            <col span='1'style='width: 5%;'>
+          </colgroup>
                 <tr>
                     <th>STT</th>
                     <th>Mã</th>
@@ -183,7 +207,7 @@ class model_NguoiDung extends DBConnect
             ";
             $stt++;
         }
-            $output .= "</table><br/><nav><br/><ul class='pagination'>";
+            $output .= "</table></div><br/><nav><br/><ul class='pagination'>";
 
             $page_result = mysqli_query($this->conn, "SELECT * FROM nguoi_dung WHERE LOAI_ND = 1");     
        
@@ -203,4 +227,6 @@ class model_NguoiDung extends DBConnect
             return $output;
         }
 
-    }
+
+
+}
