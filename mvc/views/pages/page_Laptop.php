@@ -12,6 +12,7 @@
 
         <!-- KHUNG DANH SÁCH SẢN PHẨM -->
         <div class="row">
+            <h4 class="title">Tất Cả Sản Phẩm</h4>
             <div id="tat-ca-san-pham">
 
             </div>
