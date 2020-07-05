@@ -18,57 +18,37 @@
             
         }
         
-        /**
-         * Get the value of ma_sp
-         */ 
         public function getMa_sp()
         {
                 return $this->ma_sp;
         }
 
-        /**
-         * Get the value of ma_cpu
-         */ 
         public function getMa_cpu()
         {
                 return $this->ma_cpu;
         }
 
-        /**
-         * Get the value of ma_ram
-         */ 
+
         public function getMa_ram()
         {
                 return $this->ma_ram;
         }
 
-        /**
-         * Get the value of ma_hang
-         */ 
         public function getMa_hang()
         {
                 return $this->ma_hang;
         }
 
-        /**
-         * Get the value of ten_sp
-         */ 
         public function getTen_sp()
         {
                 return $this->ten_sp;
         }
 
-        /**
-         * Get the value of gia
-         */ 
         public function getGia()
         {
                 return $this->gia;
         }
 
-        /**
-         * Get the value of trang_thai
-         */ 
         public function getTrang_thai()
         {
                 return $this->trang_thai;

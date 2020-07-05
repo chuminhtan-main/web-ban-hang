@@ -32,8 +32,7 @@
                 <div class="col-md-2" id="cart">
                     <button type="button" class="btn btn-primary btn-gio-hang" value="/doan/ThanhToan/GioHang">
 						<img src="/doan/public/images/shopping/cart-white.png" alt="cart-white">
-						Giỏ Hàng <span class="badge badge-light" id="so-luong-san-pham">0</span>
-						<!-- <span class="sr-only">unread messages</span> -->
+                        Giỏ Hàng
 					  </button>
                 </div>
                  <!-- Tài Khoản -->
@@ -92,8 +91,6 @@
     <?php echo "
     <script>
     $(document).ready(function() {
-
-
         $(document).on('click', '.btn-gio-hang', function(){
               window.location.replace($(this).val());
           });

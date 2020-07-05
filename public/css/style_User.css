@@ -8,6 +8,7 @@ body {
 }
 
 body,
+figure,
 input,
 button,
 option,
@@ -31,6 +32,10 @@ h6 a {
     color: #333;
     outline: none;
     zoom: 1;
+}
+
+h3.h3 {
+    font-size: 14px;
 }
 
 a:hover {
@@ -109,7 +114,7 @@ ul#nav-header a>img {
 
 .carousel-inner img {
     width: 100%;
-    height: 50%;
+    height: 100%;
 }
 
 #qc-dn {
@@ -117,7 +122,16 @@ ul#nav-header a>img {
 }
 
 #slide-san-pham {
-    padding: 0;
+    margin: 30px 0;
+    border: 3px solid gray;
+    border-radius: 5px;
+    width: 100%;
+    height: 354px;
+    display: inline-flex;
+}
+
+.slide {
+    height: 350px;
 }
 
 #form-dang-nhap {
@@ -147,6 +161,7 @@ div.san-pham-noi-bat {
 
 div.san-pham-noi-bat a {
     display: block;
+    height: 280px;
 }
 
 div.san-pham-noi-bat img {
@@ -156,6 +171,22 @@ div.san-pham-noi-bat img {
 
 p.img-san-pham {
     text-align: center;
+}
+
+p.ram {
+    font-size: 11px;
+    margin: 0 5px 5px 0;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #777;
+    line-height: 22px;
+    height: 20px;
+    border-radius: 2px;
+}
+
+p.label {
+    color: white;
+    background-color: #F28902;
 }
 
 h1.h1 {
@@ -168,6 +199,28 @@ div.san-pham-noi-bat p.o-cung {
     margin: 5px 5px 5px 0;
     color: #777;
     line-height: 22px;
+}
+
+figure.bginfo {
+    margin-top: 25px;
+    margin-bottom: 5px;
+    opacity: 0.8;
+    border-top: 1px dashed darkgray;
+    padding: 20px 0 0 0;
+    min-height: 320px;
+}
+
+figure.bginfo>p {
+    font-size: 12px;
+}
+
+a.taga-sp:hover {
+    text-decoration: none;
+}
+
+.btn-chon-mua {
+    display: block;
+    margin: 0 auto;
 }
 
 div.gia strong {
@@ -235,4 +288,23 @@ div.gia strong {
     /* border: 1px solid white; */
     font-weight: bold;
     color: white;
+}
+
+.bang-gia-tien {
+    width: 100%;
+}
+
+.tong-tien {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+a.dat-hang {
+    width: 50%;
+    height: 36px;
+    display: block;
+    text-align: center;
+    line-height: 30px;
+    display: block;
+    margin: 30px auto;
 }

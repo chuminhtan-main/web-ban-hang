@@ -12,5 +12,11 @@ class Controller{
     public function CreateView($view, $data=[]){
         require_once "./mvc/views/".$view.".php";
     }
+
+        // HÀM KHỞI TẠO VÀ TRẢ VỀ MỘT CONTROLLER
+        public function CreateController($controller){
+            require_once "./mvc/controllers/".$controller.".php";
+            return new $controller;
+        }
 }
 ?>

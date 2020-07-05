@@ -2,17 +2,9 @@
 require_once "./mvc/models/dto/dto_SanPham.php";
 class model_SanPham extends DBConnect
 {
-
     //HÀM THÊM MỘT SẢN PHẨM
     public function ThemSanPham($ma_cpu, $ma_ram, $ma_hang, $ten, $gia, $src_img, $mo_ta)
     {
-        echo $ma_cpu;
-        echo $ma_ram;
-        echo $ten;
-        echo $gia;
-        echo $src_img;
-        echo $mo_ta;
-
         $sql = "INSERT INTO san_pham (
         MA_CPU,
         MA_RAM,
@@ -87,9 +79,40 @@ class model_SanPham extends DBConnect
 
             $dsSanPham[] = $sp;
         }
-
+        
         return $dsSanPham;
     }
+
+        // HÀM LẤY DS SẢN PHẨM CÓ TRUYỀN THAM SỐ : CHO USER
+        public function LayDsSanPhamDangMo($trang, $soBanGhiMoiTrang)
+        {   
+            $sp = null;
+            $dsSanPham = array();
+    
+            $batDau = ($trang - 1) * $soBanGhiMoiTrang;
+            
+            $query = "SELECT * FROM san_pham  WHERE TRANG_THAI = 1 ORDER BY MA_SP DESC LIMIT $batDau, $soBanGhiMoiTrang";
+    
+            $result = mysqli_query($this->conn,$query);
+    
+            while( $row = mysqli_fetch_array( $result ) ){
+    
+                $sp = new dto_SanPham();
+                $sp->setMa_sp( $row['MA_SP'] );
+                $sp->setMa_cpu( $row['MA_CPU'] );
+                $sp->setMa_ram( $row['MA_RAM'] );
+                $sp->setMa_hang( $row['MA_HANG'] );
+                $sp->setTen_sp( $row['TEN_SP'] );
+                $sp->setGia( $row['GIA_TIEN'] );
+                $sp->setTrang_thai( $row['TRANG_THAI'] );
+                $sp->setSrc_img( $row['SRC_IMG'] );
+                $sp->setMo_ta( $row['MO_TA'] );
+    
+                $dsSanPham[] = $sp;
+            }
+            
+            return $dsSanPham;
+        }
 
     // HÀM ĐẾM SỐ LƯỢNG TRANG : CHO AJAX
     public function LaySoLuongTrang($trang, $soBanGhiMoiTrang){
@@ -99,7 +122,7 @@ class model_SanPham extends DBConnect
         $tongSoBanGhi = mysqli_num_rows($page_result);
 
         $tongSoTrang = ceil( $tongSoBanGhi/ $soBanGhiMoiTrang);
-
+        $this->conn->close();
         return $tongSoTrang;
     }
 
@@ -107,13 +130,6 @@ class model_SanPham extends DBConnect
     //HÀM CẬP NHẬT SẢN PHẨM
     public function CapNhatSanPham($ma_sp,$ma_cpu, $ma_ram, $ma_hang, $ten, $gia, $src_img, $mo_ta)
     {
-        echo $ma_cpu;
-        echo $ma_ram;
-        echo $ten;
-        echo $gia;
-        echo $src_img;
-        echo $mo_ta;
-
         $sql = "UPDATE san_pham 
         SET 
         MA_CPU = $ma_cpu,

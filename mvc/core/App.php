@@ -45,9 +45,12 @@ class App
         
         //gán cho controller là 1 đối tượng đã khởi do chính nó khởi tạo
         $this->controller = new $this->controller;
-
+        print_r($_SESSION['cart']);
+        echo "<br/>SoLuong ".sizeof($_SESSION['cart']);
         //gọi file + hàm + truyền tham số
         call_user_func_array([$this->controller, $this->action], $this->params);
+        
+        
     }
 
     //HÀM CẮT URL

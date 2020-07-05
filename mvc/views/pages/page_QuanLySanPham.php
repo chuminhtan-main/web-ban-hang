@@ -302,7 +302,7 @@ if ($data["kqThayDoiTrangThai"] == 'true') {
 
         <!-- THÔNG TIN SP -->
         <div class="form-group">
-          <label for="thon-tin-sp">Thông Tin Sản Phẩm</label>
+          <label for="thon-tin-sp">Thông Tin Sản Phẩm (Mỗi Thông Tin Phân Cách Bởi Dấu ;)</label>
           <textarea class="form-control" rows="10" name="thong-tin-sp" required><?php echo $data["sp"]["MO_TA"] ?></textarea>
         </div>
 

@@ -104,7 +104,7 @@ class ctrl_QuanLySanPham extends Controller
             $trang = 1;
         }
 
-        $dsSanPham = $this->md_SanPham->LayDsSanPham($trang, $soBanGhiMoiTrang);
+        $dsSanPham = $this->md_SanPham->LayDsSanPham($trang,$soBanGhiMoiTrang);
 
         $size = sizeof($dsSanPham);
 
@@ -139,12 +139,14 @@ class ctrl_QuanLySanPham extends Controller
             </tr>
     ";
 
+        //LẤY THÔNG TIN CHI TIẾT HÃNG - RAM - CPU cho laptop
+        $dsSanPham = $this->LayThongTinhChiTietSanPham($dsSanPham);
 
         for ($i = 0; $i < $size; $i++) {
             //LẤY THÔNG TIN CỦA HÃNG - CPU - RAM THEO MÃ VÀ CHO VÀO ĐỐI TƯỢNG SẢN PHẨM
-            $dsSanPham[$i]->setModel_cpu($this->md_CPU->LayThongTinCPU($dsSanPham[$i]->getMa_cpu()));
-            $dsSanPham[$i]->setModel_ram($this->md_RAM->LayThongTinRAM($dsSanPham[$i]->getMa_ram()));
-            $dsSanPham[$i]->setModel_hang($this->md_Hang->LayThongTinHang($dsSanPham[$i]->getMa_hang()));
+            // $dsSanPham[$i]->setModel_cpu($this->md_CPU->LayThongTinCPU($dsSanPham[$i]->getMa_cpu()));
+            // $dsSanPham[$i]->setModel_ram($this->md_RAM->LayThongTinRAM($dsSanPham[$i]->getMa_ram()));
+            // $dsSanPham[$i]->setModel_hang($this->md_Hang->LayThongTinHang($dsSanPham[$i]->getMa_hang()));
 
             $sp = new dto_SanPham();
             $sp = $dsSanPham[$i];
@@ -195,6 +197,18 @@ class ctrl_QuanLySanPham extends Controller
                 $output .= "<li class='page-item'><a class='page-link page-link-san-pham'  id='" . $i . "'>" . $i . "</a></li>";
             }
         echo $output;
+    }
+
+    // HÀM LẤY THÔNG TIN CHI TIẾT ĐỐI TƯỢNG TRONG TỪNG SẢN PHẨM
+    public function LayThongTinhChiTietSanPham($dsSanPham){
+        $size = sizeof($dsSanPham);
+        for ($i = 0; $i < $size; $i++) {
+            //LẤY THÔNG TIN CỦA HÃNG - CPU - RAM THEO MÃ VÀ CHO VÀO ĐỐI TƯỢNG SẢN PHẨM
+            $dsSanPham[$i]->setModel_cpu($this->md_CPU->LayThongTinCPU($dsSanPham[$i]->getMa_cpu()));
+            $dsSanPham[$i]->setModel_ram($this->md_RAM->LayThongTinRAM($dsSanPham[$i]->getMa_ram()));
+            $dsSanPham[$i]->setModel_hang($this->md_Hang->LayThongTinHang($dsSanPham[$i]->getMa_hang()));
+        }
+        return $dsSanPham;
     }
 
     //HÀM LẤY THÔNG TIN SẢN PHẨM
