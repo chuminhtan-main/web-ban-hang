@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (!isset($_SESSION['username'])) {
+header('Location: view_TaiKhoan.php');
+}
+?>
 <header id="header" class="navbar-inverse">
         <div class="container">
             <div class="row">
@@ -59,7 +65,7 @@
                         <div class="row">
                             <i class = "icon-user col-md-3"></i>
                             <div class="col-md-9">
-                            <span id="ten-nguoi-dung">Đăng Nhập</span>
+                            <span id="ten-nguoi-dung">Đăng Nhập <?php echo $_SESSION['username'];  ?></span>
                             <br/>
                             <span style="font-size:10px;">Tài Khoản</span>
                             </div>
