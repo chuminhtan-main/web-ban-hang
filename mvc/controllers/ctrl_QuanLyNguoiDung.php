@@ -13,7 +13,7 @@ class ctrl_QuanLyNguoiDung extends Controller
     {
         $this->CreateView("view_Admin", [
             "page" => "page_QuanLyNguoiDung",
-            "id" => "nguoiDung",
+            "id" => "tab-nguoi-dung",
             "dsNhanVien" => $this->md_nguoiDung->LayDsNguoiDung(1),
             "dsKhachHang" => $this->md_nguoiDung->LayDsNguoiDung(2)
         ]);
@@ -41,6 +41,7 @@ class ctrl_QuanLyNguoiDung extends Controller
             [
                 "page" => "page_QuanLyNguoiDung",
                 "kqThem" => $kq,
+                "id" => "tab-nguoi-dung",
                 //Lấy danh sách mới    
                 "dsNhanVien" => $this->md_nguoiDung->LayDsNguoiDung(1),
                 "dsKhachHang" => $this->md_nguoiDung->LayDsNguoiDung(2)
@@ -55,6 +56,7 @@ class ctrl_QuanLyNguoiDung extends Controller
 
         $this->CreateView("view_Admin", [
             "page" => "page_QuanLyNguoiDung",
+            "id" => "tab-nguoi-dung",
             "dsNhanVien" => $this->md_nguoiDung->LayDsNguoiDung(1),
             "dsKhachHang" => $this->md_nguoiDung->LayDsNguoiDung(2),
             "thongTinNguoiDung" => $this->md_nguoiDung->LayThongTinNguoiDung($maNguoiDung),
@@ -76,6 +78,7 @@ class ctrl_QuanLyNguoiDung extends Controller
         //2. Cập Nhật Vào DB và Thông báo
         $this->CreateView("view_Admin", [
             "page" => "page_QuanLyNguoiDung",
+            "id" => "tab-nguoi-dung",
             // cập nhật người dùng
             "kqCapNhat" => $this->md_nguoiDung->CapNhatNguoiDung($maNguoiDung, $ten, $email, $dienThoai, $diaChi),
             //Lấy danh sách mới    
@@ -89,6 +92,7 @@ class ctrl_QuanLyNguoiDung extends Controller
     {
         $this->CreateView("view_Admin", [
             "page" => "page_QuanLyNguoiDung",
+            "id" => "tab-nguoi-dung",
             // cập nhật người dùng
             "kqXoa" => $this->md_nguoiDung->XoaNguoiDung($maNguoiDung),
             //Lấy danh sách mới    

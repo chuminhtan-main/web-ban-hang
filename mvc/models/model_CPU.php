@@ -64,12 +64,19 @@ class model_CPU extends DBConnect{
         
         $batDau = ($trang - 1) * $soBanGhiMoiTrang;
         
-        $query = "SELECT * FROM cpu LIMIT $batDau, $soBanGhiMoiTrang";
+        $query = "SELECT * FROM cpu ORDER BY MA_CPU DESC LIMIT $batDau, $soBanGhiMoiTrang";
 
         $result = mysqli_query($this->conn,$query);
 
         $output .= "
+        <div class='chua-bang-danh-sach'>
             <table class='table-danh-sach'>
+        <colgroup>
+        <col span='1'style='width: 10%;'>
+        <col span='1'style='width: 10%;'>
+        <col span='1'style='width: 70%;'>
+        <col span='1'style='width: 10%;'>
+      </colgroup>
                 <tr>
                     <th>STT</th>
                     <th>Mã CPU</th>
@@ -88,13 +95,13 @@ class model_CPU extends DBConnect{
                 <td>".$row["TEN_CPU"]."</td>
                 <td>
                     <a href='/doan/CPU/LayThongTinCPU/".$row['MA_CPU']."' class='badge badge-warning btn-thao-tac'>Chỉnh Sửa</a>
-                    <button class='btn-dark btn-xoaCPU' value='/doan/CPU/XoaCPU/".$row['MA_CPU']."'>Xóa</button>
+                    <button class='btn-dark btn-xoa btn-xoaCPU' value='/doan/CPU/XoaCPU/".$row['MA_CPU']."'>Xóa</button>
                 </td>
             </tr>
             ";
             $stt++;
         }
-            $output .= "</table><br/><nav><br/><ul class='pagination'>";
+            $output .= "</table></div><br/><nav><br/><ul class='pagination'>";
 
             $page_result = mysqli_query($this->conn, "SELECT * FROM cpu");     
        

@@ -9,6 +9,7 @@
         public function show(){
             $this->CreateView("view_Admin",[
                 "page"=>"page_CPU",
+                "id"=>"tab-cau-hinh-cpu",
                 "dsCPU"=> $this->m_CPU->LayDsCPU()
                 ]);
         }
@@ -22,6 +23,7 @@
             
             $this->CreateView("view_Admin", [
                 "page"=>"page_CPU",
+                "id"=>"tab-cau-hinh-cpu",
                 "kq"=>$kq
             ]);
         }
@@ -31,7 +33,8 @@
         {
 
             $this->CreateView("view_Admin", [
-                "page" => "page_CPU",                
+                "page" => "page_CPU",    
+                "id"=>"tab-cau-hinh-cpu",            
                 "dsCPU"=> $this->m_CPU->LayDsCPU(),
                 "ThongTinCPU" => $this->m_CPU->LayThongTinCPU($maCPU),
                 //Lấy danh sách mới    
@@ -47,6 +50,7 @@
             //2. Cập Nhật Vào DB và Thông báo
             $this->CreateView("view_Admin", [
                 "page" => "page_CPU",
+                "id"=>"tab-cau-hinh-cpu",
                 // cập nhật người dùng
                 "kqCapNhat" => $this->m_CPU->CapNhatCPU($maCPU, $ten),
                 //Lấy danh sách mới    
@@ -58,6 +62,7 @@
         {
             $this->CreateView("view_Admin", [
                 "page" => "page_CPU",
+                "id"=>"tab-cau-hinh-cpu",
                 // cập nhật 
                 "kqXoa" => $this->m_CPU->XoaCPU($maCPU),
                 //Lấy danh sách mới    

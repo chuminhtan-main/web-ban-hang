@@ -9,6 +9,7 @@
         public function show(){
             $this->CreateView("view_Admin",[
                 "page"=>"page_RAM",
+                "id"=>"tab-cau-hinh-ram",
                 "dsRAM"=> $this->m_RAM->LayDsRAM()
                 ]);
         }
@@ -22,6 +23,7 @@
             
             $this->CreateView("view_Admin", [
                 "page"=>"page_RAM",
+                "id"=>"tab-cau-hinh-ram",
                 "kq"=>$kq
             ]);
         }
@@ -30,7 +32,8 @@
         {
 
             $this->CreateView("view_Admin", [
-                "page" => "page_RAM",                
+                "page" => "page_RAM",     
+                "id"=>"tab-cau-hinh-ram",           
                 "dsRAM"=> $this->m_RAM->LayDsRAM(),
                 "ThongTinRAM" => $this->m_RAM->LayThongTinRAM($maRAM),
                 //Lấy danh sách mới    
@@ -46,6 +49,7 @@
             //2. Cập Nhật Vào DB và Thông báo
             $this->CreateView("view_Admin", [
                 "page" => "page_RAM",
+                "id"=>"tab-cau-hinh-ram",
                 // cập nhật người dùng
                 "kqCapNhat" => $this->m_RAM->CapNhatRAM($maRAM, $ten),
                 //Lấy danh sách mới    
@@ -57,6 +61,7 @@
         {
             $this->CreateView("view_Admin", [
                 "page" => "page_RAM",
+                "id"=>"tab-cau-hinh-ram",
                 // cập nhật 
                 "kqXoa" => $this->m_RAM->XoaRAM($maRAM),
                 //Lấy danh sách mới    

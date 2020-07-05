@@ -4,7 +4,12 @@
 class ctrl_TrangChu extends Controller{
 
     function show(){
-        echo "Trang Chủ - Say Hi";
+        $this->CreateView("view_User",
+        [
+            "page"=>"page_TrangChu",
+            "id"=>"tab-trang-chu",
+            "da-dang-nhap"=>'false'
+        ]);
     }
 
 }

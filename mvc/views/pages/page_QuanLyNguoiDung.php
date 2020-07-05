@@ -1,161 +1,228 @@
-<?php
-    require_once './mvc/views/blocks/block_ThongBaoKetQuaAdmin.php';
-?>
+ <!-- KHU VỰC THÔNG BÁO KẾT QUẢ -->
+  <div class="row ket-qua justify-content-between">
 
-<div class="row justify-content-between">
-  <!--Form Thêm Người Dùng - Chỉ hiển thị khi có người dùng chỉnh sửa-->
-  <div class="col-md-5">
-    <h4 class="title">Thêm Người Dùng</h4>
-    <form id="them-nguoi-dung" action="/doan/QuanLyNguoiDung/ThemNguoiDung" method="POST">
-      <div class="form-row">
-        <div class="form-group col-md-4">
-          <label for="ten">Họ Và Tên</label>
-          <input type="text" class="form-control" placeholder="Họ Tên" name="ten" required>
-        </div>
-        <div class="form-group col-md-4">
-          <label for="input-email">Email</label>
-          <input type="email" class="form-control" id="input-email" placeholder="Email" name="email" required>
-        </div>
-        <div class="form-group col-md-4">
-          <label for="input-sdt">Điện Thoại</label>
-          <input type="text" class="form-control" id="input-sdt" placeholder="Số Điện Thoại" name="dien-thoai" required>
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="input-dia-chi">Địa Chỉ</label>
-        <input type="text" class="form-control" id="input-dia-chi" placeholder="1234 Trần Hưng Đạo" name="dia-chi" required>
-      </div>
+    <!-- Thông báo kết quả Thêm Mới-->
+    <?php if (isset($data["kqThem"])) {
 
-      <div class="form-row">
-        <div class="form-group col-md-2">
-          <label for="loai-nguoi-dung">Loại</label>
-          <select class="custom-select" name="loai-nguoi-dung">
-            <option value="1">Nhân Viên</option>
-            <option value="2">Khách Hàng</option>
-          </select>
-        </div>
-        <div class="form-group col-md-5">
-          <label for="inputZip">Tên Đăng Nhập</label>
-          <input type="text" class="form-control" id="input-ten-dang-nhap" name="ten-dang-nhap">
-        </div>
-        <div class="form-group col-md-5">
-          <label for="inputZip">Mật Khẩu</label>
-          <input type="password" class="form-control" id="input-mat-khau" name="mat-khau">
-        </div>
-      </div>
+      if ($data["kqThem"] == 'true') {
+        echo
+          "<script>
+            $(document).ready(function() {
+              window.location.replace('/doan/QuanLyNguoiDung');
+              alert('Thêm Mới Thành Công');
+            });
+            </script>";
+      } else {
+        echo
+          "<script>
+      $(document).ready(function() {
+        window.location.replace('/doan/QuanLyNguoiDung');
+        alert('Thêm Mới Không Thành Công');
+      });
+      </script>";
+      }
+    }
+    ?>
 
-      <div class="form-row">
-        <div class="form-group col-md-3">
-          <button type="submit" class="btn btn-primary">Tạo Mới</button>
+    <!-- Thông báo kết quả CẬP NHẬT-->
+    <?php if (isset($data["kqCapNhat"])) {
+      if ($data["kqCapNhat"] == 'true')
+        if ($data["kqCapNhat"] == 'true') {
+          echo
+            "<script>
+            $(document).ready(function() {
+              window.location.replace('/doan/QuanLyNguoiDung');
+              alert('Cập Nhật Thành Công');
+            });
+            </script>";
+        } else {
+          echo
+            "<script>
+      $(document).ready(function() {
+        window.location.replace('/doan/QuanLyNguoiDung');
+        alert('Cập Nhật Không Thành Công');
+      });
+      </script>";
+        }
+    } ?>
 
-        </div>
-      </div>
-
-    </form>
+    <!-- Thông báo kết quả XÓA-->
+    <?php if (isset($data["kqXoa"])) {
+      if ($data["kqXoa"] == 'true')
+        if ($data["kqXoa"] == 'true') {
+          echo
+            "<script>
+            $(document).ready(function() {
+              window.location.replace('/doan/QuanLyNguoiDung');
+              alert('XóaThành Công');
+            });
+            </script>";
+        } else {
+          echo
+            "<script>
+      $(document).ready(function() {
+        window.location.replace('/doan/QuanLyNguoiDung');
+        alert('Xóa Không Thành Công');
+      });
+      </script>";
+        }
+    } ?>
   </div>
 
+  <!-- MAIN -->
+  <div class="container-fluid">
 
-  <!-- Form Sửa Người Dùng -->
-  <?php
-  if (isset($data["thongTinNguoiDung"])) {
-  ?>
-
+ 
+  <div class="row justify-content-between">
+    <!--Form Thêm Người Dùng - Chỉ hiển thị khi có người dùng chỉnh sửa-->
     <div class="col-md-5">
-      <h4 class="title">Sửa Thông Tin</h4>
-      <form id="them-nguoi-dung" action="/doan/QuanLyNguoiDung/CapNhatNguoiDung/<?php echo $data["thongTinNguoiDung"]['MA_ND']; ?>" method="POST">
+      <h4 class="title">Thêm Người Dùng</h4>
+      <form id="them-nguoi-dung" action="/doan/QuanLyNguoiDung/ThemNguoiDung" method="POST">
         <div class="form-row">
           <div class="form-group col-md-4">
             <label for="ten">Họ Và Tên</label>
-            <input type="text" class="form-control" placeholder="Họ Tên" name="ten" required value="<?php echo $data["thongTinNguoiDung"]['TEN_ND']; ?>">
+            <input type="text" class="form-control" placeholder="Họ Tên" name="ten" required>
           </div>
           <div class="form-group col-md-4">
             <label for="input-email">Email</label>
-            <input type="email" class="form-control" id="input-email" placeholder="Email" name="email" required value="<?php echo $data["thongTinNguoiDung"]['EMAIL']; ?>">
+            <input type="email" class="form-control" id="input-email" placeholder="Email" name="email" required>
           </div>
           <div class="form-group col-md-4">
             <label for="input-sdt">Điện Thoại</label>
-            <input type="text" class="form-control" id="input-sdt" placeholder="Số Điện Thoại" name="dien-thoai" required value="<?php echo $data["thongTinNguoiDung"]['SDT']; ?>">
+            <input type="text" class="form-control" id="input-sdt" placeholder="Số Điện Thoại" name="dien-thoai" required>
           </div>
         </div>
         <div class="form-group">
           <label for="input-dia-chi">Địa Chỉ</label>
-          <input type="text" class="form-control" id="input-dia-chi" placeholder="1234 Trần Hưng Đạo" name="dia-chi" required value="<?php echo $data["thongTinNguoiDung"]['DIA_CHI']; ?>">
+          <input type="text" class="form-control" id="input-dia-chi" placeholder="1234 Trần Hưng Đạo" name="dia-chi" required>
         </div>
 
         <div class="form-row">
           <div class="form-group col-md-2">
             <label for="loai-nguoi-dung">Loại</label>
-            <select class="custom-select" name="loai-nguoi-dung" disabled>
-              <!-- option 1 -->
-              <option value='1' <?php
-                                if ($data["thongTinNguoiDung"]['LOAI_ND'] == 1) {
-                                  echo "selected";
-                                }
-                                ?>>Nhân Viên</option>
-
-              <!-- option 2 -->
-              <option value='2' <?php
-                                if ($data["thongTinNguoiDung"]['LOAI_ND'] == 2) {
-                                  echo "selected";
-                                }
-                                ?>>Khách Hàng</option>
+            <select class="custom-select" name="loai-nguoi-dung">
+              <option value="1">Nhân Viên</option>
+              <option value="2">Khách Hàng</option>
             </select>
           </div>
           <div class="form-group col-md-5">
             <label for="inputZip">Tên Đăng Nhập</label>
-            <input type="text" class="form-control" id="input-ten-dang-nhap" name="ten-dang-nhap" required disabled>
+            <input type="text" class="form-control" id="input-ten-dang-nhap" name="ten-dang-nhap">
           </div>
           <div class="form-group col-md-5">
             <label for="inputZip">Mật Khẩu</label>
-            <input type="password" class="form-control" id="input-mat-khau" name="mat-khau" disabled>
+            <input type="password" class="form-control" id="input-mat-khau" name="mat-khau">
           </div>
         </div>
 
         <div class="form-row">
           <div class="form-group col-md-3">
-            <button type="submit" class="btn btn-primary">Cập Nhật</button>
+            <button type="submit" class="btn btn-primary">Tạo Mới</button>
           </div>
         </div>
+
       </form>
     </div>
 
-  <?php
-  }
-  ?>
 
+    <!-- Form Sửa Người Dùng -->
+    <?php
+    if (isset($data["thongTinNguoiDung"])) {
+    ?>
 
-</div>
-<!-- 
+      <div class="col-md-5">
+        <h4 class="title">Sửa Thông Tin</h4>
+        <form id="them-nguoi-dung" action="/doan/QuanLyNguoiDung/CapNhatNguoiDung/<?php echo $data["thongTinNguoiDung"]['MA_ND']; ?>" method="POST">
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <label for="ten">Họ Và Tên</label>
+              <input type="text" class="form-control" placeholder="Họ Tên" name="ten" required value="<?php echo $data["thongTinNguoiDung"]['TEN_ND']; ?>">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="input-email">Email</label>
+              <input type="email" class="form-control" id="input-email" placeholder="Email" name="email" required value="<?php echo $data["thongTinNguoiDung"]['EMAIL']; ?>">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="input-sdt">Điện Thoại</label>
+              <input type="text" class="form-control" id="input-sdt" placeholder="Số Điện Thoại" name="dien-thoai" required value="<?php echo $data["thongTinNguoiDung"]['SDT']; ?>">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="input-dia-chi">Địa Chỉ</label>
+            <input type="text" class="form-control" id="input-dia-chi" placeholder="1234 Trần Hưng Đạo" name="dia-chi" required value="<?php echo $data["thongTinNguoiDung"]['DIA_CHI']; ?>">
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-2">
+              <label for="loai-nguoi-dung">Loại</label>
+              <select class="custom-select" name="loai-nguoi-dung" disabled>
+                <!-- option 1 -->
+                <option value='1' <?php
+                                  if ($data["thongTinNguoiDung"]['LOAI_ND'] == 1) {
+                                    echo "selected";
+                                  }
+                                  ?>>Nhân Viên</option>
+
+                <!-- option 2 -->
+                <option value='2' <?php
+                                  if ($data["thongTinNguoiDung"]['LOAI_ND'] == 2) {
+                                    echo "selected";
+                                  }
+                                  ?>>Khách Hàng</option>
+              </select>
+            </div>
+            <div class="form-group col-md-5">
+              <label for="inputZip">Tên Đăng Nhập</label>
+              <input type="text" class="form-control" id="input-ten-dang-nhap" name="ten-dang-nhap" required disabled>
+            </div>
+            <div class="form-group col-md-5">
+              <label for="inputZip">Mật Khẩu</label>
+              <input type="password" class="form-control" id="input-mat-khau" name="mat-khau" disabled>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-3">
+              <button type="submit" class="btn btn-primary">Cập Nhật</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+    <?php
+    }
+    ?>
+ </div>
+  </div>
+  <!-- 
   DANH SÁCH NHÂN VIÊN
   Thẻ h4 chứa class title
   Table chứa class table-danh-sach
 -->
-<h4 class="title">Danh Sách Nhân Viên</h4>
-<div class="row">
-  <div class="col-md-12" id="danh-sach-nhan-vien">
-    
+<div class="container-fluid">
+  <h4 class="title">Danh Sách Nhân Viên</h4>
+  <div class="row">
+    <div class="col-md-12" id="danh-sach-nhan-vien">
+
+    </div>
   </div>
 </div>
-
-<!-- 
+  <!-- 
   DANH SÁCH KHÁCH HÀNG
   Thẻ h4 chứa class title
   Table chứa class table-danh-sach
 -->
-<h4 class="title">Danh Sách Khách Hàng</h4>
-<div class="row">
-  <div class="col-md-12" id="danh-sach-khach-hang">
+<div class="container-fluid">
+  <h4 class="title">Danh Sách Khách Hàng</h4>
+  <div class="row">
+    <div class="col-md-12" id="danh-sach-khach-hang">
 
+    </div>
   </div>
-
-
-</div>
-<div class="row">
-<div id="pagination-data">
-
-</div>
-</div>
-<?php echo "
+  </div>
+  </div>
+<!-- AJAX CHO BẢNG DANH SÁCH -->
+  <?php echo "
     <script>
     $(document).ready(function() {
         load_data_nhan_vien();
@@ -212,4 +279,4 @@
     });
 </script>
 ";
-?>
+  ?>
