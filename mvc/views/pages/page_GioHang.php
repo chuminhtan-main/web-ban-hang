@@ -14,6 +14,9 @@
         <span class="col-md-3" style="color:brown;"><?php if( isset($data["tong_tien"])) echo $data["tong_tien"]."  đ"; ?></span>
     </div>
     <div class="row">
-         <a href="#" class="badge badge-success dat-hang" >ĐẶT HÀNG</a>
+        <?php if( isset($data['co-san-pham'])){ ?>
+         <a href="/doan/ThanhToan/DatHang" class="badge badge-success dat-hang" >ĐẶT HÀNG</a>
+        <?php } ?>
+
     </div>
 </div>

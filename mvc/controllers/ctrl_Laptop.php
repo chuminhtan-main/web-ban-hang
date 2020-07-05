@@ -7,18 +7,24 @@ class ctrl_Laptop extends Controller
     private $md_SanPham;
     public function __construct()
     {
+
         $this->ctrl_TrangChu = $this->CreateController("ctrl_TrangChu");
         $this->ctrl_QuanLySanPham = $this->CreateController("ctrl_QuanLySanPham");
         $this->md_SanPham =  $this->CreateModel("model_SanPham");
     }
     public function show()
     {
+        $loged = false;
+        if( isset($_SESSION['loged']) && $_SESSION['loged'] == true){
+            $loged = true;
+        }
         $this->CreateView(
             "view_User",
             [
                 "page" => "page_Laptop",
                 "slide" => $this->ctrl_TrangChu->TaoSlide(),
-                "id" => "tab-laptop"
+                "id" => "tab-laptop",
+                "loged"=>$loged
             ]
         );
     }

@@ -11,6 +11,7 @@ class ctrl_QuanLyNguoiDung extends Controller
 
     public function show()
     {
+        include("./mvc/core/permission_Admin.php");
         $this->CreateView("view_Admin", [
             "page" => "page_QuanLyNguoiDung",
             "id" => "tab-nguoi-dung",

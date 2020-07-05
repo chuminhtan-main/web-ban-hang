@@ -1,3 +1,5 @@
+
+session_start();
 <?php
     class ctrl_CPU extends Controller{
         protected $m_CPU;
@@ -7,6 +9,7 @@
         }
         
         public function show(){
+            include("./mvc/core/permission_Admin.php");
             $this->CreateView("view_Admin",[
                 "page"=>"page_CPU",
                 "id"=>"tab-cau-hinh-cpu",

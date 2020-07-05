@@ -7,6 +7,7 @@
         }
         
         public function show(){
+            include("./mvc/core/permission_Admin.php");
             $this->CreateView("view_Admin",[
                 "page"=>"page_RAM",
                 "id"=>"tab-cau-hinh-ram",

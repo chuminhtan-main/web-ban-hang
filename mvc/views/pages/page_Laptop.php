@@ -17,7 +17,6 @@
             </div>
         </div>
     </div>
-<a href="/doan/ThanhToan/TinhTongSoLuong">click</a>
     <!-- SCRIPT -->
     <?php echo "
     <script>

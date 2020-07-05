@@ -47,9 +47,13 @@
             </div>
 
             <!-- Đăng Xuất Đăng Nhập -->
-            <div id="thong-tin-dang-nhap" class="col-md-2">
-                <a id="btn-dang-xuat" href="">Đăng Xuất</a>
-                <div id="ten-dang-nhap">Tên Đăng Nhập</div>
+            <div id="thong-tin-dang-nhap" class="col-md-1">
+                <a id="btn-dang-xuat btn " href="/doan/TaiKhoan/DangXuat">Đăng Xuất</a>
+            </div>
+
+            <!-- Về Trang Chủ -->
+            <div id="thong-tin-dang-nhap" class="col-md-1">
+                <a id="btn-dang-xuat btn " href="/doan/TrangChu">Về Trang Chủ</a>
             </div>
         </div>
 

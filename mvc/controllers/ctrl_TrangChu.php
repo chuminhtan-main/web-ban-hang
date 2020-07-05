@@ -1,5 +1,7 @@
 <!-- TRANG CHỦ CONTROLLER-->
+
 <?php
+
 class ctrl_TrangChu extends Controller{
 
     private $md_SanPham;
@@ -12,14 +14,18 @@ class ctrl_TrangChu extends Controller{
     }
 
     function show(){
+        $loged = false;
+        if( isset($_SESSION['loged']) && $_SESSION['loged'] == true){
+            $loged = true;
+        }
+
         $this->CreateView("view_User",
         [
-         
             "page"=>"page_TrangChu",
             "id"=>"tab-trang-chu",
             "slide"=>$this->TaoSlide(),
             "dsSanPhamMoi"=>$this->LayDsSanPhamMoi(),
-            "da-dang-nhap"=>'false'
+            "loged"=>$loged
         ]);
     }
 

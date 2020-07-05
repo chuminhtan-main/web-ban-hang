@@ -51,33 +51,31 @@
 
 
                     <div class="row">
+                     <!-- Thông Tin Cá Nhân -->
 
-                    <?php if(isset($data["da-dang-nhap"]) == false || $data["da-dang-nhap"] == 'false') { ?>
-                    <!-- Đăng Nhập -->
+                     <?php  if( isset($data['loged']) && $data['loged'] == true ) { ?>
+                        <a href="/doan/TaiKhoan/DangXuat" class="taga-tai-khoan taga-dang-nhap">
+                        <div class="row">
+                            <i class = "icon-user col-md-3"></i>
+                            <div class="col-md-9">
+                             <span id=" ">Đăng Xuất</span>
+                              <br/>
+                               <span style="font-size:10px;">Đã Đăng Nhập</span>
+                            </div>
+                            </div>
+                        </a>
+                    <?php } else{ ?>
                         <a href="/doan/TaiKhoan/DangNhap" class="taga-tai-khoan taga-dang-nhap">
                         <div class="row">
                             <i class = "icon-user col-md-3"></i>
                             <div class="col-md-9">
-                            <span id="ten-nguoi-dung">Đăng Nhập</span>
-                            <br/>
-                            <span style="font-size:10px;">Tài Khoản</span>
+                             <span id=" ">Đăng Nhập</span>
+                              <br/>
+                               <span style="font-size:10px;">Chưa Đăng Nhập</span>
                             </div>
                             </div>
                         </a>
-
-                    <?php } else { ?>
-                     <!-- Thông Tin Cá Nhân -->
-                        <a href="/doan/TaiKhoan/ThongTinTaiKhoan" class="taga-tai-khoan taga-dang-nhap">
-                        <div class="row">
-                            <i class = "icon-user col-md-3"></i>
-                            <div class="col-md-9">
-                            <span id="ten-nguoi-dung">Tên Người Dùng</span>
-                            <br/>
-                            <span style="font-size:10px;">Tài Khoản</span>
-                            </div>
-                            </div>
-                        </a>
-                    <?php } ?>
+                    <?php }; ?>
 
                     </div>
                 </div>

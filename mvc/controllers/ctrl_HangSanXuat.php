@@ -1,3 +1,4 @@
+
 <?php
     class ctrl_HangSanXuat extends Controller{
         protected $model_Hang;
@@ -7,6 +8,7 @@
         }
         
         public function show(){
+            include("./mvc/core/permission_Admin.php");
             $this->CreateView("view_Admin",[
                 "page"=>"page_HangSanXuat",
                 "id"=>"tab-hang-san-xuat",

@@ -1,5 +1,4 @@
 <?php
-    $_SESSION['cart'][$id]['sl'] =0;
     class ctrl_ThanhToan extends Controller{ 
         private $ctrl_TrangChu;
         private $md_SanPham;
@@ -10,8 +9,8 @@
             $this->md_SanPham = $this->CreateModel("model_SanPham");
         }
 
+        // XEM GIỎ HÀNG
         public function GioHang(){
-            
             $dsGioHang = $_SESSION['cart'];
             $dsSanPham = array();
             if( isset($dsGioHang)){
@@ -21,6 +20,8 @@
                     }        
                 }
             }
+
+            $_SESSION['san_pham_dat_hang'] = $dsSanPham;
 
             $output = "
             <div class='bang-gia-tien'>
@@ -37,9 +38,10 @@
                 <th>STT</th>
                 <th>Mã SP</th>
                 <th>Tên SP</th>
-                <th>Số Lượng</th>
                 <th>Đơn Giá</th>
+                <th>Số Lượng</th>
                 <th>Thành Tiền</th>
+                <th>Thao Tác</th>
             </tr>
             ";
 
@@ -59,9 +61,10 @@
                     <td>" . ($i + 1) . "</td>
                     <td>" . $sp["MA_SP"] . "</td>
                     <td>" . $sp["TEN_SP"] . "</td>
-                    <td>" . $so_luong. "</td>
                     <td>" . $don_gia."</td>
-                    <td>" .$thanh_tien. "</td>          
+                    <td> <input type='number' min='1'></td>
+                    <td>" .$thanh_tien. "</td>        
+                    <td><a href='/doan/ThanhToan/XoaSanPham'>Xóa</a></td>        
                 </tr> 
                     ";
                 }
@@ -70,18 +73,21 @@
             $tong_tien = number_format($tong_tien, 0, '', '.');
             $output .= "</table></div>";
 
+            $loged = false;
+            if( isset($_SESSION['loged']) && $_SESSION['loged'] == true){
+                $loged = true;
+            }
             $this->CreateView("view_User",
             [
                 "page"=>"page_GioHang",
                 "id"=>"NONE",
                 "dsSanPhamGioHang"=>$output,
-                "tong_tien"=>$tong_tien
+                "co-san-pham"=>'true',
+                "tong_tien"=>$tong_tien,
+                "loged"=>$loged
             ]);
         }
 
-        public function hello($id){
-            echo "hello ".$id;
-        }
         //HÀM THÊM VÀO GIỎ HÀNG
         public function ThemVaoGioHang($id){
 
@@ -117,7 +123,15 @@
                 );
                 exit();
         }
+    }
 
+    //HÀM ĐẶT HÀNG
+    public function DatHang(){
+        include("./mvc/core/permission_User.php");
+
+        if( isset($_SESSION['san_pham_dat_hang'])){
+            print_r($_SESSION['san_pham_dat_hang']);
+        }
     }
 }
 ?>

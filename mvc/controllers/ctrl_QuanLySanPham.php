@@ -1,4 +1,6 @@
+
 <?php
+
 class ctrl_QuanLySanPham extends Controller
 {
     protected $md_SanPham;
@@ -18,6 +20,8 @@ class ctrl_QuanLySanPham extends Controller
     }
     public function show()
     {
+
+        include("./mvc/core/permission_Admin.php");
         $this->CreateView("view_Admin", [
             "page" => "page_QuanLySanPham",
             "id" => "tab-san-pham",
