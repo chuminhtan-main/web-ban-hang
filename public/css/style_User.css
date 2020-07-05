@@ -50,7 +50,9 @@ a:hover {
 ul#nav-header>li {
     width: 33%;
 }
-
+ul,li{
+    list-style:  none;
+}
 ul#nav-header a {
     color: black;
     width: 100%;

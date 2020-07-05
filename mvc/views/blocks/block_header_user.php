@@ -1,9 +1,4 @@
-<?php
-session_start();
-if (!isset($_SESSION['username'])) {
-header('Location: view_TaiKhoan.php');
-}
-?>
+
 <header id="header" class="navbar-inverse">
         <div class="container">
             <div class="row">

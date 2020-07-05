@@ -18,9 +18,13 @@
     <?php 
         require_once "./mvc/views/blocks/block_header_user.php";
     ?> 
+    
     <?php 
         require_once "./mvc/views/pages/" . $data["page"] . ".php";
     ?> 
     
+    <?php 
+        require_once "./mvc/views/blocks/block_footer_user.php";
+    ?> 
 </body>
 </html>
