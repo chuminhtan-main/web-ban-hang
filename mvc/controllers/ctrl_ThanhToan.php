@@ -62,7 +62,7 @@
                     <td>" . $sp["MA_SP"] . "</td>
                     <td>" . $sp["TEN_SP"] . "</td>
                     <td>" . $don_gia."</td>
-                    <td> <input type='number' min='1'></td>
+                    <td>".$so_luong."</td>
                     <td>" .$thanh_tien. "</td>        
                     <td><a href='/doan/ThanhToan/XoaSanPham'>Xóa</a></td>        
                 </tr> 
@@ -111,14 +111,16 @@
             exit();
         }
         else{
-                $id = $_POST["san_pham_can_them"];
-                $_SESSION['cart'][$id]['sl'] =1;
+                if( isset($_POST["san_pham_can_them"])){
+                    $id = $_POST["san_pham_can_them"];
+                    $_SESSION['cart'][$id]['sl'] =1;
+                }
                 $this->CreateView(
                     "view_User",
                     [
                         "page" => "page_Laptop",
                         "slide" => $this->ctrl_TrangChu->TaoSlide(),
-                        "id" => "tab-laptop",
+                        "id" => "tab-laptop"
                     ]
                 );
                 exit();
