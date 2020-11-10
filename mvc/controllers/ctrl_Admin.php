@@ -7,6 +7,7 @@
             $this->CreateView("view_Admin",[
                 "page"=>"page_QuanLyNguoiDung"
             ]);
+            echo "hello";
         }
     
     }
